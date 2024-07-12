@@ -24,9 +24,9 @@ link = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_InxkV5GPZKYxQp1qO9d1k
 
 df_teste = pd.read_csv(link)
 
-# total = df_teste["VALOR N. FISCAL"].sum()
+total = df_teste["VALOR N.FISCAL"].sum()
 
-# st.write(total)
+st.write(total)
 
 st.dataframe(df_teste,use_container_width = True, hide_index = True)
 
