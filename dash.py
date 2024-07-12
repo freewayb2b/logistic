@@ -23,6 +23,6 @@ link = "https://docs.google.com/spreadsheets/d/1hnV9zOAG33fFhw97RX7RERAaFDn63zKX
 # ws = sh.get_worksheet(0)
 # planilha = ws.get_all_values()
 
-df_teste = pd.read_table(link)
+df_teste = pd.read_excel(link)
 
 st.dataframe(df_teste,use_container_width = True, hide_index = True)
