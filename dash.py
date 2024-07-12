@@ -69,6 +69,6 @@ map = px.choropleth(df_filtrado,locations = "state")
 
 
 # Mostrar o mapa no Streamlit
-st.plotly_chart(fig,use_container_width = True)
+st.plotly_chart(map,use_container_width = True)
 
 
