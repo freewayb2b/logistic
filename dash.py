@@ -26,7 +26,7 @@ df_teste = pd.read_csv(link)
 
 # total = df_teste["VALOR N. FISCAL"].sum()
 
-st.write(total)
+# st.write(total)
 
 st.dataframe(df_teste,use_container_width = True, hide_index = True)
 
