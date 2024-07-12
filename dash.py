@@ -5,6 +5,7 @@ from gspread import Worksheet
 import datetime as dt
 import geopandas as gpd
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 
 st.set_page_config(layout = "wide")
@@ -74,6 +75,6 @@ plt.xlabel('Longitude')
 plt.ylabel('Latitude')
 
 # Mostrar o mapa no Streamlit
-st.pyplot(fig)
+st.plotly_chart(fig)
 
 
