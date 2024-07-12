@@ -31,13 +31,13 @@ df_teste = df_teste.drop(columns=["TNT FRANCA","%","%.1","%.2","%.3","%.4","%.5"
 
 df_teste['VR. FRETE COBRADO'] = df_teste['VR. FRETE COBRADO'].str.replace('.', '').str.replace(',', '.').astype(float)
 
-total = df_teste["VR. FRETE COBRADO"].sum()
-
-st.selectbox("",df_teste["TRANSPORTADORA"].unique())
-
 st.metric("Pago",f'R$ {total:,.2f}')
 
+filto_trans = st.selectbox("",df_teste["TRANSPORTADORA"].unique())
 
+df_filtrado = df_teste.query('TRANSPORTADORA == @filto_trans')
+
+total = df_filtrado["VR. FRETE COBRADO"].sum()
 
 st.dataframe(df_teste,use_container_width = True, hide_index = True)
 
