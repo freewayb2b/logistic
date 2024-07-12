@@ -33,6 +33,8 @@ df_teste['VR. FRETE COBRADO'] = df_teste['VR. FRETE COBRADO'].str.replace('.', '
 
 total = df_teste["VR. FRETE COBRADO"].sum()
 
+st.selectbox("",df_teste["TRANSPORTADORA"].unique())
+
 st.metric("Pago",f'R$ {total:,.2f}')
 
 
