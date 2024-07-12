@@ -18,10 +18,7 @@ import datetime as dt
 st.subheader("teste")
 
 
-link = "https://docs.google.com/spreadsheets/d/1hnV9zOAG33fFhw97RX7RERAaFDn63zKXalEJg9EJcsI/edit?usp=sharing"
-# sh = sg.open_by_url(link)
-# ws = sh.get_worksheet(0)
-# planilha = ws.get_all_values()
+link = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_InxkV5GPZKYxQp1qO9d1knpB4_xzbh-TL0YYDor-wY1ldpmOisnRDZ6imGvt6d14rz8IRS7ivN3K/pub?output=xlsx"
 
 df_teste = pd.read_excel(link)
 
