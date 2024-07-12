@@ -3,6 +3,8 @@ import pandas as pd
 import gspread as sg
 from gspread import Worksheet
 import datetime as dt
+import geopandas as gpd
+import matplotlib.pyplot as plt
 
 
 st.set_page_config(layout = "wide")
@@ -41,5 +43,8 @@ total = df_filtrado["VR. FRETE COBRADO"].sum()
 st.metric("Pago",f'R$ {total:,.2f}')
 
 st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
+
+shapefile_path = gpd.datasets.get_path(df_filtrado)
+gdf = gpd.read_file(shapefile_path)
 
 
