@@ -46,8 +46,6 @@ st.metric("Pago",f'R$ {total:,.2f}')
 st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
 
-
-
 fig = px.choropleth(
     df_filtrado,
     locations='UF',  # Coluna no DataFrame contendo os nomes dos estados
@@ -59,7 +57,6 @@ fig = px.choropleth(
     title='Valores por Estado'  # Título do mapa
 )
 
-# Configurações de layout do Streamlit
 st.title('Mapa de Valores por Estado')
 
 # Mostrar o mapa no Streamlit
