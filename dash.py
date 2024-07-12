@@ -47,17 +47,6 @@ st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
 
 
-
-
-
-# Exemplo de DataFrame com dados de estados e valores
-data = {
-    'state': ['São Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Bahia', 'Paraná'],
-    'value': [100, 150, 200, 250, 300]
-}
-
-df_filtrado = pd.DataFrame(data)
-
 # Criar um mapa de coroplético usando Plotly Express
 fig = px.choropleth(
     df_filtrado,
