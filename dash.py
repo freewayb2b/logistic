@@ -51,7 +51,7 @@ data = {
     'value': [100, 150, 200, 250, 300]
 }
 
-df = pd.DataFrame(data)
+df = pd.DataFrame(df_filtrado)
 
 brasil = gpd.read_file('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson')
 
