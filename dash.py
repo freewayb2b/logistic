@@ -24,7 +24,7 @@ link = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_InxkV5GPZKYxQp1qO9d1k
 
 df_teste = pd.read_csv(link)
 
-df_teste = df_teste.drop(columns=["TNT FRANCA","%","%.1","%.2","%.3","%.4","%.5","%.6","F.L. LOG.","TROCA TRANS.","VITLOG","RODO-NAVES"])
+df_teste = df_teste.drop(columns=["TNT FRANCA","%","%.1","%.2","%.3","%.4","%.5","%.6","F.L. LOG.","TROCA TRANS.","VITLOG","RODO-NAVES","VR. FRETE CALCULADO N.F."])
 
 df_teste['VR. FRETE COBRADO'] = df_teste['VR. FRETE COBRADO'].str.replace('.', '').str.replace(',', '.').astype(float)
 
