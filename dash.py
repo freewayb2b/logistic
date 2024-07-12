@@ -40,6 +40,6 @@ df_filtrado = df_teste.query('TRANSPORTADORA == @filto_trans')
 total = df_filtrado["VR. FRETE COBRADO"].sum()
 st.metric("Pago",f'R$ {total:,.2f}')
 
-st.dataframe(df_teste,use_container_width = True, hide_index = True)
+st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
 
