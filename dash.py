@@ -7,7 +7,7 @@ import datetime as dt
 #-----------------------------------------------------------------------------------------------------
 #ETL
 
-# gc3 = sg.service_account("logistica.json")
+# gc = sg.service_account("logistica.json")
 # link = "https://docs.google.com/spreadsheets/d/1hnV9zOAG33fFhw97RX7RERAaFDn63zKXalEJg9EJcsI/edit?usp=sharing"
 # sh = gc.open_by_url(link)
 # ws = sh.get_worksheet(0)
@@ -19,7 +19,7 @@ st.subheader("teste")
 
 
 link = "https://docs.google.com/spreadsheets/d/1hnV9zOAG33fFhw97RX7RERAaFDn63zKXalEJg9EJcsI/edit?usp=sharing"
-sh = gc.open_by_url(link)
+sh = sg.open_by_url(link)
 ws = sh.get_worksheet(0)
 planilha = ws.get_all_values()
 
