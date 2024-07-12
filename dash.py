@@ -44,9 +44,7 @@ st.metric("Pago",f'R$ {total:,.2f}')
 
 st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
-import pandas as pd
-import geopandas as gpd
-import matplotlib.pyplot as plt
+
 
 # Criar um DataFrame de exemplo com nomes de estados e valores
 data = {
