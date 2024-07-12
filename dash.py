@@ -1,7 +1,16 @@
-gc3 = sg.service_account("gestao.json")
+import streamlit as st
+import pandas as pd
+import gspread as sg
+from gspread import Worksheet
+import datetime as dt
+
+#-----------------------------------------------------------------------------------------------------
+#ETL
+
+gc3 = sg.service_account("logistica.json")
 link = "https://docs.google.com/spreadsheets/d/1hnV9zOAG33fFhw97RX7RERAaFDn63zKXalEJg9EJcsI/edit?usp=sharing"
-sh3 = gc3.open_by_url(link)
-ws3 = sh3.get_worksheet(0)
-planilha3 = ws3.get_all_values()
-df_teste = pd.DataFrame(planilha3[1:], columns=planilha3[0])
-st.dadaframe(df_teste,use_container_width= True)
+sh = gc.open_by_url(link)
+ws = sh.get_worksheet(0)
+planilha = ws.get_all_values()
+df_teste = pd.DataFrame(planilha[1:], columns=planilha[0])
+st.dadaframe(df_teste,use_container_width = True, hide_index = True)
