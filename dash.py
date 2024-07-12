@@ -46,18 +46,28 @@ st.metric("Pago",f'R$ {total:,.2f}')
 st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
 
-fig = px.choropleth(
-    df_filtrado,
-    locations='UF',  # Coluna no DataFrame contendo os nomes dos estados
-    locationmode= 'ISO-3166-2',  # Modo de localização: nomes dos países ou estados
-    color='VR. FRETE COBRADO',  # Coluna no DataFrame contendo os valores para colorir
-    hover_name='UF',  # Nome para aparecer ao passar o mouse sobre cada estado no mapa
-    color_continuous_scale='OrRd',  # Esquema de cores
-    labels={'VR. FRETE COBRADO'},  # Rótulo para a barra de cores
-    title='Valores por Estado'  # Título do mapa
-)
 
-st.title('Mapa de Valores por Estado')
 
-# Mostrar o mapa no Streamlit
-st.plotly_chart(fig)
+# Exemplo de DataFrame com dados de estados e valores
+data = {
+    'UF': ['SP', 'RJ', 'MG', 'BA', 'PR'],
+    'VR. FRETE COBRADO': [100, 150, 200, 250, 300]
+}
+
+df_filtrado = pd.DataFrame(data)
+
+# Calcular o total
+total = df_filtrado["VR. FRETE COBRADO"].sum()
+
+# Exibir a métrica no Streamlit
+st.metric("Total Pago", f'R$ {total:,.2f}')
+
+# Exibir o DataFrame no Streamlit
+st.dataframe(df_filtrado, use_container_width=True, hide_index=True)
+
+# Tentar criar um mapa de coroplético usando Plotly Express
+try:
+    fig = px.choropleth(
+        df_filtrado,
+        locations='UF',  # Coluna no DataFrame contendo as siglas dos estados brasileiros
+        locationmode='ISO-3166-2',  # Modo
