@@ -65,6 +65,8 @@ ax = brasil.plot(column='value', cmap='OrRd', legend=True, figsize=(10, 10))
 plt.title('Valores por Estado no Brasil')
 
 # Mostrar o mapa
-st.write(brasil)
+mapa = plt.show()
+
+st.write(mapa)
 
 
