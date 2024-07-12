@@ -27,8 +27,6 @@ df_teste['Data'] = pd.to_datetime(df_teste["DATA N.F."])
 df_teste["Mês"] = df_teste["Data"].dt.month
 
 
-st.write(df_teste)
-
 df_teste = df_teste.drop(columns=["TNT FRANCA","%","%.1","%.2","%.3","%.4","%.5","%.6","%.7","F.L. LOG.","TROCA TRANS.","VITLOG","RODO-NAVES","VR. FRETE CALCULADO N.F.","VR. DIFER."])
 
 df_teste['VR. FRETE COBRADO'] = df_teste['VR. FRETE COBRADO'].str.replace('.', '').str.replace(',', '.').astype(float)
