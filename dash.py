@@ -44,10 +44,30 @@ st.metric("Pago",f'R$ {total:,.2f}')
 
 st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
-shapefile_path = gpd.datasets.get_path(link)
-gdf = gpd.read_file(shapefile_path)
+import pandas as pd
+import geopandas as gpd
+import matplotlib.pyplot as plt
 
-gdf.plot()
+# Criar um DataFrame de exemplo com nomes de estados e valores
+data = {
+    'state': ['São Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Bahia', 'Paraná'],
+    'value': [100, 150, 200, 250, 300]
+}
 
+df = df_filtrado["UF"]
+
+brasil = gpd.read_file('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson')
+
+
+brasil = brasil.merge(df, how='left', left_on='name', right_on='state')
+
+
+ax = brasil.plot(column='value', cmap='OrRd', legend=True, figsize=(10, 10))
+
+
+plt.title('Valores por Estado no Brasil')
+
+
+plt.show()
 
 
