@@ -28,7 +28,7 @@ df_teste['VALOR N.FISCAL'] = df_teste['VALOR N.FISCAL'].str.replace('.', '').str
 
 total = df_teste["VALOR N.FISCAL"].sum()
 
-st.metric("Pago",total)
+st.metric("Pago",f'R$ {total:,.2f}')
 
 # st.write(df_teste.info)
 
