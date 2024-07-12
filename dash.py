@@ -75,6 +75,6 @@ plt.xlabel('Longitude')
 plt.ylabel('Latitude')
 
 # Mostrar o mapa no Streamlit
-st.plotly_chart(fig)
+st.plotly_chart(fig,use_container_width = True)
 
 
