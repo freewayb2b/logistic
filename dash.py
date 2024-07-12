@@ -31,7 +31,7 @@ df_teste = df_teste.drop(columns=["TNT FRANCA","%","%.1","%.2","%.3","%.4","%.5"
 
 df_teste['VR. FRETE COBRADO'] = df_teste['VR. FRETE COBRADO'].str.replace('.', '').str.replace(',', '.').astype(float)
 
-st.metric("Pago",f'R$ {total:,.2f}')
+# st.metric("Pago",f'R$ {total:,.2f}')
 
 filto_trans = st.selectbox("",df_teste["TRANSPORTADORA"].unique())
 
