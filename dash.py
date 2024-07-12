@@ -65,7 +65,7 @@ brasil = gpd.read_file('https://raw.githubusercontent.com/codeforamerica/click_t
 brasil = brasil.merge(df, how='left', left_on='name', right_on='state')
 
 
-map = px.choropleth(df_filtrado,locations = "state")
+map = px.choropleth(df_filtrado,locations = "state",locationmode="states")
 
 
 # Mostrar o mapa no Streamlit
