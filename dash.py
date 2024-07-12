@@ -24,9 +24,9 @@ link = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_InxkV5GPZKYxQp1qO9d1k
 
 df_teste = pd.read_csv(link)
 
-df_teste['VALOR N.FISCAL'] = df_teste['VALOR N.FISCAL'].str.replace('.', '').str.replace(',', '.').astype(float)
+df_teste['VR. FRETE COBRADO'] = df_teste['VR. FRETE COBRADO'].str.replace('.', '').str.replace(',', '.').astype(float)
 
-total = df_teste["VALOR N.FISCAL"].sum()
+total = df_teste["VR. FRETE COBRADO"].sum()
 
 st.metric("Pago",f'R$ {total:,.2f}')
 
