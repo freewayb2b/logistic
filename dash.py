@@ -24,7 +24,7 @@ link = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_InxkV5GPZKYxQp1qO9d1k
 
 df_teste = pd.read_csv(link)
 
-df_teste["Data"] = df_teste["DATA N.F."].dt.month
+df_teste["Data"] = df_teste["DATA N.F."].dt.month()
 
 st.write(df_teste)
 
