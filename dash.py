@@ -51,7 +51,7 @@ brasil = gpd.read_file('https://raw.githubusercontent.com/codeforamerica/click_t
 fig = px.choropleth(
     df_filtrado,
     locations='UF',  # Coluna no DataFrame contendo os nomes dos estados
-    locationmode= brasil,  # Modo de localização: nomes dos países ou estados
+    locationmode='states names',  # Modo de localização: nomes dos países ou estados
     color='VR. FRETE COBRADO',  # Coluna no DataFrame contendo os valores para colorir
     hover_name='UF',  # Nome para aparecer ao passar o mouse sobre cada estado no mapa
     color_continuous_scale='OrRd',  # Esquema de cores
