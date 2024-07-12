@@ -64,15 +64,9 @@ brasil = gpd.read_file('https://raw.githubusercontent.com/codeforamerica/click_t
 # Mesclar o GeoDataFrame do Brasil com o DataFrame dos valores
 brasil = brasil.merge(df, how='left', left_on='name', right_on='state')
 
-# Configurações de layout do Streamlit
-st.title('Mapa de Valores por Estado no Brasil')
 
-# Plotar o mapa usando o Streamlit
-fig, ax = plt.subplots(1, 1, figsize=(10, 8))
-brasil.plot(column='value', cmap='OrRd', linewidth=0.8, ax=ax, edgecolor='0.8', legend=True)
-plt.title('Valores por Estado no Brasil')
-plt.xlabel('Longitude')
-plt.ylabel('Latitude')
+map = px.choropleth(df_filtrado,locations = "state")
+
 
 # Mostrar o mapa no Streamlit
 st.plotly_chart(fig,use_container_width = True)
