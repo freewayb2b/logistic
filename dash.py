@@ -24,12 +24,14 @@ link = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_InxkV5GPZKYxQp1qO9d1k
 
 df_teste = pd.read_csv(link)
 
-df_teste["VALOR N.FISCAL"] = df_teste["VALOR N.FISCAL"].astype(float)
+# df_teste["VALOR N.FISCAL"] = df_teste["VALOR N.FISCAL"].astype(float)
 
-total = df_teste["VALOR N.FISCAL"].sum().reset_index()
+# total = df_teste["VALOR N.FISCAL"].sum().reset_index()
 
-st.write(total)
+# st.write(total)
 
-st.dataframe(df_teste,use_container_width = True, hide_index = True)
+st.write(df_teste.info)
+
+# st.dataframe(df_teste,use_container_width = True, hide_index = True)
 
 
