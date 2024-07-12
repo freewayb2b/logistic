@@ -45,6 +45,8 @@ st.metric("Pago",f'R$ {total:,.2f}')
 st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
 
+
+
 # Criar um DataFrame de exemplo com nomes de estados e valores
 data = {
     'state': ['São Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Bahia', 'Paraná'],
@@ -53,20 +55,23 @@ data = {
 
 df = pd.DataFrame(data)
 
-brasil = gpd.read_file('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson')
+# Carregar o shapefile de estados do Brasil
+brasil = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
 
-
+# Mesclar o GeoDataFrame do Brasil com o DataFrame dos valores
 brasil = brasil.merge(df, how='left', left_on='name', right_on='state')
 
-# Plotar o mapa
-ax = brasil.plot(column='value', cmap='OrRd', legend=True, figsize=(10, 10))
+# Configurações de layout do Streamlit
+st.title('Mapa de Valores por Estado no Brasil')
 
-# Adicionar título
+# Plotar o mapa usando o Streamlit
+fig, ax = plt.subplots(1, 1, figsize=(10, 8))
+brasil.plot(column='value', cmap='OrRd', linewidth=0.8, ax=ax, edgecolor='0.8', legend=True)
 plt.title('Valores por Estado no Brasil')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
 
-# Mostrar o mapa
-mapa = plt.show()
-
-st.write(mapa)
+# Mostrar o mapa no Streamlit
+st.pyplot(fig)
 
 
