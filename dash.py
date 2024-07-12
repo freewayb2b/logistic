@@ -48,27 +48,30 @@ st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
 
 
-# Criar um DataFrame de exemplo com nomes de estados e valores
+
+
+# Exemplo de DataFrame com dados de estados e valores
 data = {
     'state': ['São Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Bahia', 'Paraná'],
     'value': [100, 150, 200, 250, 300]
 }
 
-df = pd.DataFrame(data)
+df_filtrado = pd.DataFrame(data)
 
-# Carregar o shapefile de estados do Brasil
-brasil = gpd.read_file('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson')
+# Criar um mapa de coroplético usando Plotly Express
+fig = px.choropleth(
+    df_filtrado,
+    locations='state',  # Coluna no DataFrame contendo os nomes dos estados
+    locationmode='country names',  # Modo de localização: nomes dos países ou estados
+    color='value',  # Coluna no DataFrame contendo os valores para colorir
+    hover_name='state',  # Nome para aparecer ao passar o mouse sobre cada estado no mapa
+    color_continuous_scale='OrRd',  # Esquema de cores
+    labels={'value': 'Valor'},  # Rótulo para a barra de cores
+    title='Valores por Estado'  # Título do mapa
+)
 
-# brasil = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
-
-# Mesclar o GeoDataFrame do Brasil com o DataFrame dos valores
-brasil = brasil.merge(df, how='left', left_on='name', right_on='state')
-
-
-map = px.choropleth(df_filtrado,locations = "state",locationmode="country names")
-
+# Configurações de layout do Streamlit
+st.title('Mapa de Valores por Estado')
 
 # Mostrar o mapa no Streamlit
-st.plotly_chart(map,use_container_width = True)
-
-
+st.plotly_chart(fig)
