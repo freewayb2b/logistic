@@ -44,7 +44,7 @@ st.metric("Pago",f'R$ {total:,.2f}')
 
 st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
-shapefile_path = gpd.datasets.get_path(df_filtrado)
+shapefile_path = gpd.datasets.get_path(link)
 gdf = gpd.read_file(shapefile_path)
 
 gdf.plot()
