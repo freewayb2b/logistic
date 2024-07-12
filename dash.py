@@ -57,7 +57,7 @@ df = df_filtrado["UF"]
 brasil = gpd.read_file('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson')
 
 
-brasil = brasil.merge(df_filtrado, how='left', left_on='name', right_on='state')
+# brasil = brasil.merge(df_filtrado, how='left', left_on='name', right_on='state')
 
 
 ax = brasil.plot(column='value', cmap='OrRd', legend=True, figsize=(10, 10))
