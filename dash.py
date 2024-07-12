@@ -56,7 +56,9 @@ data = {
 df = pd.DataFrame(data)
 
 # Carregar o shapefile de estados do Brasil
-brasil = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+brasil = gpd.read_file('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson')
+
+# brasil = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
 
 # Mesclar o GeoDataFrame do Brasil com o DataFrame dos valores
 brasil = brasil.merge(df, how='left', left_on='name', right_on='state')
