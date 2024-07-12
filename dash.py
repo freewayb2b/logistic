@@ -47,6 +47,9 @@ st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
 
 
+import streamlit as st
+import pandas as pd
+import plotly.express as px
 
 # Exemplo de DataFrame com dados de estados e valores
 data = {
@@ -59,6 +62,9 @@ df_filtrado = pd.DataFrame(data)
 # Calcular o total
 total = df_filtrado["VR. FRETE COBRADO"].sum()
 
+# Configurações de layout do Streamlit
+st.title('Mapa de Valores por Estado')
+
 # Exibir a métrica no Streamlit
 st.metric("Total Pago", f'R$ {total:,.2f}')
 
@@ -70,4 +76,16 @@ try:
     fig = px.choropleth(
         df_filtrado,
         locations='UF',  # Coluna no DataFrame contendo as siglas dos estados brasileiros
-        locationmode='ISO-3166-2',  # Modo
+        locationmode='ISO-3166-2',  # Modo de localização: ISO-3166-2 para estados
+        color='VR. FRETE COBRADO',  # Coluna no DataFrame contendo os valores para colorir
+        hover_name='UF',  # Nome para aparecer ao passar o mouse sobre cada estado no mapa
+        color_continuous_scale='OrRd',  # Esquema de cores
+        labels={'VR. FRETE COBRADO': 'Valor do Frete'},  # Rótulo para a barra de cores
+        title='Valores por Estado'  # Título do mapa
+    )
+
+    # Mostrar o mapa no Streamlit
+    st.plotly_chart(fig)
+
+except Exception as e:
+    st.error(f"Ocorreu um erro ao gerar o mapa: {e}")
