@@ -5,7 +5,7 @@ from gspread import Worksheet
 import datetime as dt
 
 
-st.page_config(layout = "wide")
+st.set_page_config(layout = "wide")
 #-----------------------------------------------------------------------------------------------------
 #ETL
 
