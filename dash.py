@@ -21,5 +21,5 @@ st.subheader("teste")
 link = "https://docs.google.com/spreadsheets/d/1hnV9zOAG33fFhw97RX7RERAaFDn63zKXalEJg9EJcsI/edit?usp=sharing"
 
 planilha = link
-df_teste = pd.DataFrame(planilha[1:], columns=planilha[0])
+df_teste = pd.DataFrame(link)
 st.dadaframe(df_teste,use_container_width = True, hide_index = True)
