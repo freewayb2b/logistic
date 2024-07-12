@@ -28,7 +28,7 @@ df_teste = pd.read_csv(link)
 
 total = df_teste["VALOR N.FISCAL"].sum()
 
-st.write(total)
+st.metric("Pago",total)
 
 # st.write(df_teste.info)
 
