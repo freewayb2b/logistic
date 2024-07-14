@@ -91,10 +91,10 @@ with col3:
 #-----------------------------------------------------------------------------------------------------
 #charts 
 df_columns = df_filtrado.groupby('dia')['FRETE PAGO'].sum().reset_index()
-columns_chart = px.area(df_columns,x="dia", y="FRETE PAGO",title="Acompanhamento Diário")
+are_chart = px.area(df_columns,x="dia", y="FRETE PAGO",title="Acompanhamento Diário")
 
 with col6:
-    st.plotly_chart(columns_chart,use_container_width= True)
+    st.plotly_chart(areaa_chart,use_container_width= True)
     
 
  
