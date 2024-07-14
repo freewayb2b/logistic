@@ -100,7 +100,7 @@ df_bar = df_filtrado.groupby('TRANSPORTADORA')['FRETE PAGO'].sum().reset_index()
 bar_chart = px.bar(df_bar,x="FRETE PAGO", y="TRANSPORTADORA",title="Frete Por Transportadora",orientation= "h")
 with col7:
     st.plotly_chart(bar_chart,use_container_width= True)
-    a
+    
 st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 #-----------------------------------------------------------------------------------------------------
 
