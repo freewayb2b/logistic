@@ -18,6 +18,7 @@ st.divider()
 
 col1, col2, col3, col4, col5 = st.columns([2,2,2,1,1])
 col6, col7= st.columns(2)
+col8, = st.columns(1)
 
 
 #-----------------------------------------------------------------------------------------------------
@@ -101,7 +102,14 @@ df_bar = df_bar.sort_values("FRETE PAGO",ascending = True)
 bar_chart = px.bar(df_bar,x="FRETE PAGO", y="TRANSPORTADORA",title="Frete Por Transportadora",orientation= "h")
 with col7:
     st.plotly_chart(bar_chart,use_container_width= True)
-    
+
+df_faturamento = df_filtrado.groupby('dia')['VALOR N.FISCAL'].sum().reset_index()
+area_chart_faturamento = px.area(df_faturamento,x="dia", y="VALOR N.FISCAL",title="Faturamento Diário")
+
+with col8:
+    st.plotly_chart(area_chart_faturamento,use_container_width= True)
+
+  
 st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 #-----------------------------------------------------------------------------------------------------
 
