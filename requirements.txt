@@ -4,4 +4,4 @@ plotly.express
 gspread
 datetime
 geopandas
-matplotlib
+folium
