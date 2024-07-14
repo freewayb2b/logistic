@@ -20,7 +20,6 @@ col1, col2, col3, col4, col5 = st.columns([2,2,2,1,1])
 col6, col7= st.columns(2)
 
 
-
 #-----------------------------------------------------------------------------------------------------
 #ETL
 
@@ -41,11 +40,6 @@ df = df.drop(columns=["TNT FRANCA","%","%.1","%.2","%.3","%.4","%.5","%.6","TNT 
 df['FRETE PAGO'] = df['VR. FRETE COBRADO'].str.replace('.', '').str.replace(',', '.').astype(float)
 df['VALOR N.FISCAL'] = df['VALOR N.FISCAL'].str.replace('.', '').str.replace(',', '.').astype(float)
 
-
-
-#-----------------------------------------------------------------------------------------------------
-geo_local = pd.read_json('uf.json',encoding='latin-1')
-geo_estados = pd.read_csv('data.csv',encoding= 'latin-1')
 
 #-----------------------------------------------------------------------------------------------------
 #mapear meses
@@ -107,14 +101,3 @@ with col6:
 st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 #-----------------------------------------------------------------------------------------------------
 
-
-# # Exiba o mapa no Streamlit
-# st.title('Mapa de Choropleth com Folium no Streamlit')
-
-
-
-
-# m = folium.Map(location=[-12.2350,-51.9253], zoom_start=4)
-
-
-# st_map = st_folium(m, width=700, height=500)
