@@ -5,3 +5,4 @@ gspread
 datetime
 geopandas
 folium
+streamlit_folium
