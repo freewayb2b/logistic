@@ -105,6 +105,7 @@ with col7:
 
 df_faturamento = df_filtrado.groupby('dia')['VALOR N.FISCAL'].sum().reset_index()
 area_chart_faturamento = px.area(df_faturamento,x="dia", y="VALOR N.FISCAL",title="Faturamento Diário")
+area_chart_faturamento.update_xaxes(dtick=1)
 
 with col8:
     st.plotly_chart(area_chart_faturamento,use_container_width= True)
