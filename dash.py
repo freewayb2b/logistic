@@ -141,7 +141,7 @@ area_chart.layout.yaxis.fixedrange = True
 area_chart.update_yaxes(showgrid=False,visible=False,title="Valor")
 area_chart.update_xaxes(showgrid=False,visible=True,title="Dia")
 
-with col6:
+with col7:
     st.plotly_chart(area_chart,use_container_width= True)
 
 #-----------------------------------------------------------------------------------------------------
