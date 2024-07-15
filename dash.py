@@ -113,7 +113,7 @@ with col7:
     st.plotly_chart(bar_chart,use_container_width= True)
 
 df_faturamento = df_filtrado.groupby('dia')['VALOR N.FISCAL'].sum().reset_index()
-area_chart_faturamento = px.area(df_faturamento,x="dia", y="VALOR N.FISCAL",title="Faturamento Diário")
+area_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",title="Faturamento Diário")
 area_chart_faturamento.update_xaxes(dtick=1)
 
 with col8:
