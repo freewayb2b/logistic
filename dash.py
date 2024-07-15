@@ -138,7 +138,8 @@ df_filtrado["DATA N.F."] = pd.to_datetime(df["DATA N.F."])
 df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 with col9:
     st.subheader("Acompanhamento", anchor = False)
-    st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
+    # st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
+    st.dataframe(df_faturamento,use_container_width = True, hide_index = True)
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
 
