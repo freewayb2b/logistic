@@ -98,7 +98,7 @@ area_chart = px.area(df_columns,x="dia", y="FRETE PAGO",title="Acompanhamento Di
 area_chart.update_xaxes(dtick=1)
 area_chart.layout.xaxis.fixedrange = True
 area_chart.layout.yaxis.fixedrange = True
-area_chart.update_yaxes(showgrid=False,visible=False,title="")
+area_chart.update_yaxes(showgrid=False,visible=True,title="")
 # area_chart.update_xaxes(showgrid=False,visible=True,title="")
 
 with col6:
