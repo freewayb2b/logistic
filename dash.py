@@ -64,6 +64,39 @@ df = df.sort_values('Mês', ascending= True)
 
 df["Mês"] = df["Mês"].map(mapear_meses)
 
+#-----------------------------------------------------------------------------------------------------
+#mes atual
+
+today = dt.date.today()
+
+mes = today.month
+
+if mes == 1:
+    mes_atual = "Jan"
+elif mes == 2:
+    mes_atual = "Fev"
+elif mes == 3:
+    mes_atual = "Mar"
+elif mes == 4:
+    mes_atual = "Abr"
+elif mes == 5:
+    mes_atual = "Mai"
+elif mes == 6:
+    mes_atual = "Jun"
+elif mes ==7:    
+    mes_atual = "Jul"
+elif mes == 8:    
+    mes_atual = "Ago"
+elif mes == 9:    
+   mes_atual =  "Set"
+elif mes == 10:    
+   mes_atual =  "Out"
+elif mes == 11:    
+    mes_atual = "Nov"
+else:
+    "Dez"
+
+meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
 
 #-----------------------------------------------------------------------------------------------------
 #filters
@@ -71,7 +104,7 @@ df["Mês"] = df["Mês"].map(mapear_meses)
 with col4:
     filter_year = st.selectbox('Ano', df["Ano"].unique())
 with col5:
-    filter_month = st.selectbox('Mês',df["Mês"].unique())
+    filter_month = st.selectbox('Mês',meses,index=meses.index(mes_atual))
 
 df_filtrado = df.query('Ano == @filter_year and Mês == @filter_month')
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
