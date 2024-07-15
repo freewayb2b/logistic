@@ -104,12 +104,14 @@ meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'
 #filters
 
 with col4:
-    filter_year = st.selectbox('Ano', df["Ano"].unique())
+    # filter_year = st.selectbox('Ano', df["Ano"].unique())
+    filtro_inicio = st.date_input("De","today")
 with col5:
     filter_month = st.selectbox('Mês',meses,index=meses.index(mes_atual))
+    filtro_fim = st.date_input("Até","today")
 
-# pago = df.query('STATUS == "PAGO" and @filtro_dia_1 <= Data <= @filtro_dia_2 and FORNECEDOR == @fornecedor')
-df_filtrado = df.query('Ano == @filter_year and Mês == @filter_month')
+df_filtrado = df.query('@filtro_inicio <= DATA N.F. <= @filtro_fim')
+# df_filtrado = df.query('Ano == @filter_year and Mês == @filter_month')
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
 #-----------------------------------------------------------------------------------------------------
@@ -191,7 +193,7 @@ df_uf['FRETE PAGO'] = df_uf['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
 with col9:
     st.subheader("Frete por UF", anchor = False)
     st.dataframe(df,use_container_width = True, hide_index = True)
-    data = st.date_input("data","today")
+    
     
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
