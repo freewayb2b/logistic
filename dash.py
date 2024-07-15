@@ -127,7 +127,7 @@ area_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",
 area_chart_faturamento.update_xaxes(dtick=1)
 area_chart_faturamento.update_traces(showlegend=False,textfont=dict(size=20,color='#ffffff'),textposition='auto')
 area_chart_faturamento.layout.xaxis.fixedrange = False
-area_chart_faturamento.layout.yaxis.fixedrange = True
+area_chart_faturamento.layout.yaxis.fixedrange = False
 area_chart_faturamento.update_yaxes(showgrid=False,visible=False,title="")
 
 with col8:
