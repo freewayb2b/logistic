@@ -119,7 +119,7 @@ bar_chart.update_xaxes(showgrid=False,visible=False,title="")
 with col7:
     st.plotly_chart(bar_chart,use_container_width= True)
 
-df_faturamento = df_filtrado.groupby('Mês')['VALOR N.FISCAL'].sum().reset_index()
+df_faturamento = df_filtrado.groupby['VALOR N.FISCAL'].sum().reset_index()
 
 area_chart_faturamento = px.bar(df_faturamento,x="Mês", y="VALOR N.FISCAL",orientation="v")
 
