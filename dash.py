@@ -123,7 +123,7 @@ with col1:
     st.metric("QTD NFs",qtd_nfs)
     
 with col2:
-    st.metric("Total Faturado",f'R$ {total:,.0f}')
+    st.metric("Total Faturado",f'R$ {total2:,.0f}')
     
 with col3:
     st.metric("Total Fretes",f'R$ {valor_frete:,.0f}')
