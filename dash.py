@@ -125,12 +125,13 @@ area_chart_faturamento.update_yaxes(showgrid=False,visible=True,title="")
 
 
 with col8:
+    st.subheader("Faturamento do Período", anchor = False)
     st.plotly_chart(area_chart_faturamento,use_container_width= True)
 
 df_filtrado = df_filtrado.drop(columns=["Mês","dia"])
 
 with col9:
-    st.subheader("Faturamento do Período", anchor = False)
+    st.subheader("Acompanhamento", anchor = False)
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
