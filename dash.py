@@ -120,7 +120,7 @@ with col7:
     st.plotly_chart(bar_chart,use_container_width= True)
 
 df_faturamento = df_filtrado.groupby('dia')['VALOR N.FISCAL'].sum().reset_index()
-
+df_faturamento = df_faturamento[df_faturamento['valor'] != 0]
 area_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",orientation="v",barmode = "stack")
 
 # area_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",orientation="v",
