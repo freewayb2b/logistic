@@ -126,7 +126,7 @@ area_chart_faturamento.update_yaxes(showgrid=False,visible=True,title="")
 with col8:
     st.plotly_chart(area_chart_faturamento,use_container_width= True)
 
-  
+df_filtrado = df_filtrado.drop(columns=["Mês","dia"])
 st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
