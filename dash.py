@@ -15,7 +15,7 @@ st.image("header.png")
 st.divider()
 
 col1, col2, col3, col4, col5, col6 = st.columns([2,2,2,2,1,1])
-col6, col8 = st.columns(2)
+col7, col8 = st.columns(2)
 col9, = st.columns(1)
 col10, = st.columns(1)
 
