@@ -103,10 +103,11 @@ meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'
 #filters
 
 with col4:
-    filter_year = st.selectbox('Ano', df["Ano"].unique())
+    dt_inicio = st.date_input("De","today",format='DD/MM/YYYY')
 with col5:
-    filter_month = st.selectbox('Mês',meses,index=meses.index(mes_atual))
+    dt_fim = st.date_input("De","today",format='DD/MM/YYYY')
 
+df_filtrado = df.query('@dt_inicio <= DATA N.F <= @dt_fim')
 df_filtrado = df.query('Ano == @filter_year and Mês == @filter_month')
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
