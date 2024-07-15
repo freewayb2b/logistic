@@ -120,7 +120,7 @@ borda = """
             <style>
             [data-testid="column"]
             {
-            background-color: black;
+            background-color: #2F3035;
             border-radius: 15px;
             padding: 10px;
             color: #D9D9D9;
