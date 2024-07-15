@@ -121,7 +121,8 @@ with col7:
 
 df_faturamento = df_filtrado.groupby('dia')['VALOR N.FISCAL'].sum().reset_index()
 df_faturamento = df_faturamento[df_faturamento['VALOR N.FISCAL'] != 0]
-area_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",orientation="v",barmode = "stack")
+area_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",orientation="v")
+area_chart_faturamento.update_yaxes(rangemode='tozero')
 
 # area_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",orientation="v",
 #     text=df_faturamento['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.0f}'),
