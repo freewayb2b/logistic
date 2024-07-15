@@ -110,7 +110,7 @@ with col5:
     # filter_month = st.selectbox('Mês',meses,index=meses.index(mes_atual))
     filtro_fim = st.date_input("Até","today")
 
-df_filtrado = df.query('@filtro_inicio <= DATA N.F. <= @filtro_fim')
+df_filtrado = df.query('DATA N.F. @filtro_inicio <= DATA N.F. <= @filtro_fim')
 # df_filtrado = df.query('Ano == @filter_year and Mês == @filter_month')
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
