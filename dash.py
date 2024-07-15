@@ -112,10 +112,10 @@ df_filtrado = df.query('Ano == @filter_year and Mês == @filter_month')
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
 #-----------------------------------------------------------------------------------------------------
-total2 = df["VALOR N.FISCAL"].sum()
-qtd_nfs = df.shape[0]
+
+qtd_nfs = df_filtrado.shape[0]
 total = df_filtrado["VALOR N.FISCAL"].sum()
-valor_frete = df["FRETE PAGO"].sum()
+valor_frete = df_filtrado["FRETE PAGO"].sum()
 
 #-----------------------------------------------------------------------------------------------------
 
@@ -123,7 +123,7 @@ with col1:
     st.metric("QTD NFs",qtd_nfs)
     
 with col2:
-    st.metric("Total Faturado",f'R$ {total2:,.0f}')
+    st.metric("Total Faturado",f'R$ {total:,.0f}')
     
 with col3:
     st.metric("Total Fretes",f'R$ {valor_frete:,.0f}')
