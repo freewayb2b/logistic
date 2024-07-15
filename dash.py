@@ -95,7 +95,6 @@ with col3:
 df_columns = df_filtrado.groupby('dia')['FRETE PAGO'].sum().reset_index()
 cor_barras = "#000000"
 area_chart = px.area(df_columns,x="dia", y="FRETE PAGO",title="Acompanhamento Diário",color_discrete_sequence=[cor_barras])
-
 area_chart.update_xaxes(dtick=1)
 
 with col6:
