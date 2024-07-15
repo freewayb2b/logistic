@@ -173,13 +173,17 @@ area_chart_faturamento.update_yaxes(showgrid=False,visible=False,title="")
 with col8:
     st.subheader(f'Faturamento de {filter_month} de {filter_year}', anchor = False)
     st.plotly_chart(area_chart_faturamento,use_container_width= True)
-
+#-----------------------------------------------------------------------------------------------------
 df_filtrado = df_filtrado.drop(columns=["Mês","dia"])
 df_filtrado["DATA N.F."] = pd.to_datetime(df["DATA N.F."])
 df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
+#-----------------------------------------------------------------------------------------------------
+
+df_uf = df_filtrado.groupby(['UF','FRETE PAGO'])['VALOR N.FISCAL'].sum().reset_index()
+
 with col9:
     st.subheader("Acompanhamento", anchor = False)
-    st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
+    st.dataframe(df_uf,use_container_width = True, hide_index = True)
     
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
