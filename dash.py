@@ -115,7 +115,7 @@ with col6:
     filtro_fim = st.date_input("Até","today",format= "DD/MM/YYYY")
 
 
-df_filtrado = df.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNDADE == @filtro_fabrica')
+df_filtrado = df.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE == @filtro_fabrica')
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
 #-----------------------------------------------------------------------------------------------------
