@@ -33,7 +33,7 @@ df["Data"] = pd.to_datetime(df["DATA N.F."])
 df["Mês"] = pd.to_datetime(df["DATA N.F."]).dt.day
 df["dia"] = pd.to_datetime(df["DATA N.F."]).dt.month
 df["Ano"] = df["Data"].dt.year
-df['data_string'] = df['Ano'].astype(str) + '-' + df['dia'].astype(str).str.zfill(2) + '-' + df['Mês'].astype(str).str.zfill(2)
+df['data_string'] = df['Ano'].astype(str) + '-' + df['Mês'].astype(str).str.zfill(2) + '-' + df['dia'].astype(str).str.zfill(2)
 # df["data_string"] = pd.to_datetime(df["data_string"])
 
 df = df.drop(columns=["TNT FRANCA","%","%.1","%.2","%.3","%.4","%.5","%.6","TNT JACOBINA","MENOR VR. FRETE","TRANSP. MENOR FRETE",'data_string',"Data",
