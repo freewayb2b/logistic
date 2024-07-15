@@ -127,7 +127,7 @@ with col2:
     st.metric("Total Faturado",f'R$ {total:,.0f}')
     
 with col3:
-    st.metric("Total Fretes",f'R$ {valor_frete:,.0f}')
+    st.metric("Frete Pago",f'R$ {valor_frete:,.0f}')
 
 #-----------------------------------------------------------------------------------------------------
 #charts 
