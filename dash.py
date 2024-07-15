@@ -131,7 +131,7 @@ with col3:
     st.metric("Frete Pago",f'R$ {valor_frete:,.0f}')
 
 with col4:
-    st.metric("Percentual Frete","teste")
+    st.metric("Percentual Frete",percentual_frete)
 
 #-----------------------------------------------------------------------------------------------------
 #charts 
