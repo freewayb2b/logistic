@@ -34,7 +34,7 @@ df["Mês"] = pd.to_datetime(df["DATA N.F."]).dt.day
 df["dia"] = pd.to_datetime(df["DATA N.F."]).dt.month
 df["Ano"] = df["Data"].dt.year
 df['data_string'] = df['Ano'].astype(str) + '-' + df['Mês'].astype(str).str.zfill(2) + '-' + df['dia'].astype(str).str.zfill(2)
-df["data_string"] = pd.to_datetime(df["data_string"])
+# df["data_string"] = pd.to_datetime(df["data_string"])
 
 df = df.drop(columns=["TNT FRANCA","%","%.1","%.2","%.3","%.4","%.5","%.6","TNT JACOBINA","MENOR VR. FRETE","TRANSP. MENOR FRETE",'data_string',"Data",
                 "%.7","F.L. LOG.","TROCA TRANS.","VITLOG","RODO-NAVES","VR. FRETE CALCULADO N.F.","VR. DIFER."])
