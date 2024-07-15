@@ -184,7 +184,7 @@ df_uf = df_uf.sort_values('FRETE PAGO',ascending=False)
 
 with col9:
     st.subheader("Acompanhamento", anchor = False)
-    st.dataframe(df_uf,use_container_width = True, hide_index = True)
+    st.dataframe(df_uf,use_container_width = True, hide_index = False)
     
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
