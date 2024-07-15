@@ -109,10 +109,13 @@ with col5:
 df_filtrado = df.query('Ano == @filter_year and Mês == @filter_month')
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
+#-----------------------------------------------------------------------------------------------------
 
 qtd_nfs = df_filtrado.shape[0]
 total = df_filtrado["VALOR N.FISCAL"].sum()
 valor_frete = df_filtrado["FRETE PAGO"].sum()
+
+#-----------------------------------------------------------------------------------------------------
 
 with col1:
     st.metric("QTD NFs",qtd_nfs)
@@ -137,6 +140,8 @@ area_chart.update_xaxes(showgrid=False,visible=True,title="Dia")
 with col6:
     st.plotly_chart(area_chart,use_container_width= True)
 
+#-----------------------------------------------------------------------------------------------------
+
 df_bar = df_filtrado.groupby('TRANSPORTADORA')['FRETE PAGO'].sum().reset_index()
 df_bar = df_bar.sort_values("FRETE PAGO",ascending = True)
 
@@ -148,9 +153,10 @@ bar_chart.layout.yaxis.fixedrange = True
 bar_chart.update_yaxes(showgrid=False,visible=True,title="")
 bar_chart.update_xaxes(showgrid=False,visible=False,title="")
 
-
 with col7:
     st.plotly_chart(bar_chart,use_container_width= True)
+
+#-----------------------------------------------------------------------------------------------------
 
 df_faturamento = df_filtrado.groupby('dia')['VALOR N.FISCAL'].sum().reset_index()
 
