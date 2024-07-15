@@ -145,7 +145,7 @@ borda = """
             border-radius: 15px;
             padding: 10px;
             color: #ffffff;
-            opacity: 90%;
+            opacity: 100%;
             }
             </style>
             """
