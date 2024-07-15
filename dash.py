@@ -119,19 +119,16 @@ bar_chart.update_xaxes(showgrid=False,visible=False,title="")
 with col7:
     st.plotly_chart(bar_chart,use_container_width= True)
 
-df_faturamento = df_filtrado.groupby(['dia','Mês'])['VALOR N.FISCAL'].sum().reset_index()
+df_faturamento = df_filtrado.groupby('dia')['VALOR N.FISCAL'].sum().reset_index()
 
-area_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",orientation="v")
-
-
-# area_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",orientation="v",
-#     text=df_faturamento['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.0f}'),
-#             title="Faturamento Diário",color_discrete_sequence=[cor_barras])
-# area_chart_faturamento.update_xaxes(dtick=1)
-# area_chart_faturamento.update_traces(showlegend=False,textfont=dict(size=20,color='#ffffff'),textposition='auto')
-# area_chart_faturamento.layout.xaxis.fixedrange = True
-# area_chart_faturamento.layout.yaxis.fixedrange = True
-# area_chart_faturamento.update_yaxes(showgrid=False,visible=False,title="")
+area_chart_faturamento = px.area(df_faturamento,x="dia", y="VALOR N.FISCAL",orientation="v",
+    text=df_faturamento['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.0f}'),
+            title="Faturamento Diário",color_discrete_sequence=[cor_barras])
+area_chart_faturamento.update_xaxes(dtick=1)
+area_chart_faturamento.update_traces(showlegend=False,textfont=dict(size=20,color='#ffffff'),textposition='auto')
+area_chart_faturamento.layout.xaxis.fixedrange = True
+area_chart_faturamento.layout.yaxis.fixedrange = True
+area_chart_faturamento.update_yaxes(showgrid=False,visible=False,title="")
 
 
 with col8:
