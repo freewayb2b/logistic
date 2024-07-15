@@ -129,7 +129,7 @@ with col8:
 
 df_filtrado = df_filtrado.drop(columns=["Mês","dia"])
 
-col9:
+with col9:
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
