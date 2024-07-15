@@ -129,4 +129,4 @@ borda = """
             </style>
             """
 
-st.markdown(botoes, unsafe_allow_html=True)  
+st.markdown(borda, unsafe_allow_html=True)  
