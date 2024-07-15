@@ -105,10 +105,10 @@ meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'
 
 with col4:
     # filter_year = st.selectbox('Ano', df["Ano"].unique())
-    filtro_inicio = st.date_input("De",pd.to_datetime("2024-01-01").date())
+    filtro_inicio = st.date_input("De",pd.to_datetime("2024-01-01").date(),format= "DD/MM/YYYY")
 with col5:
     # filter_month = st.selectbox('Mês',meses,index=meses.index(mes_atual))
-    filtro_fim = st.date_input("Até","today")
+    filtro_fim = st.date_input("Até","today",format= "DD/MM/YYYY")
 
 df_filtrado = df.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim')
 
