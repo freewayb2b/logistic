@@ -19,6 +19,7 @@ st.divider()
 col1, col2, col3, col4, col5 = st.columns([2,2,2,1,1])
 col6, col7= st.columns(2)
 col8, = st.columns(1)
+col9, = st.columns(1)
 
 
 #-----------------------------------------------------------------------------------------------------
@@ -127,7 +128,9 @@ with col8:
     st.plotly_chart(area_chart_faturamento,use_container_width= True)
 
 df_filtrado = df_filtrado.drop(columns=["Mês","dia"])
-st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
+
+col9:
+    st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
 
