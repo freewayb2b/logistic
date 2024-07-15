@@ -163,7 +163,7 @@ df_faturamento = df_filtrado.groupby('dia')['VALOR N.FISCAL'].sum().reset_index(
 
 area_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",
     text=df_faturamento['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.0f}'),
-            title=f'Faturamento de {filter_month} de {filter_year}',color_discrete_sequence=[cor_barras])
+            title='Faturamento Diário',color_discrete_sequence=[cor_barras])
 area_chart_faturamento.update_xaxes(dtick=1)
 area_chart_faturamento.update_traces(showlegend=False,textfont=dict(size=20,color='#ffffff'),textposition='auto')
 area_chart_faturamento.layout.xaxis.fixedrange = True
@@ -172,7 +172,7 @@ area_chart_faturamento.update_yaxes(showgrid=False,visible=False,title="")
 
 
 with col8:
-    st.subheader("Faturamento do Período", anchor = False)
+    st.subheader(f'Faturamento de {filter_month} de {filter_year}', anchor = False)
     st.plotly_chart(area_chart_faturamento,use_container_width= True)
 
 df_filtrado = df_filtrado.drop(columns=["Mês","dia"])
