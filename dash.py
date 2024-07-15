@@ -122,7 +122,7 @@ with col7:
 df_faturamento = df_filtrado.groupby('dia')['VALOR N.FISCAL'].sum().reset_index()
 
 area_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",orientation="v",
-    text=df_filtrado['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.0f}'),
+    text=df_faturamento['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.0f}'),
             title="Faturamento Diário",color_discrete_sequence=[cor_barras])
 area_chart_faturamento.update_xaxes(dtick=1)
 area_chart_faturamento.update_yaxes(showgrid=False)
