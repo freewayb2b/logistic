@@ -133,7 +133,8 @@ with col8:
     st.plotly_chart(area_chart_faturamento,use_container_width= True)
 
 df_filtrado = df_filtrado.drop(columns=["Mês","dia"])
-# df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
+df_filtrado["DATA N.F."] = pd.to_datetime(df["DATA N.F."])
+df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 with col9:
     st.subheader("Acompanhamento", anchor = False)
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
