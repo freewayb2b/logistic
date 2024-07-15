@@ -187,7 +187,7 @@ with col9:
     st.subheader('Faturamento do Período', anchor = False)
     st.plotly_chart(column_chart_faturamento,use_container_width= True)
 #-----------------------------------------------------------------------------------------------------
-df_filtrado = df_filtrado.drop(columns=["Mês","dia"])
+df_filtrado = df_filtrado.drop(columns=["Mês","dia","CLIENTE"])
 # df_filtrado["DATA N.F."] = pd.to_datetime(df["DATA N.F."])
 df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 #-----------------------------------------------------------------------------------------------------
