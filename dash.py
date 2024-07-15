@@ -105,6 +105,8 @@ meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'
 #-----------------------------------------------------------------------------------------------------
 #filters
 
+with coltitle:
+    filtro_fabrica = st.multiselec("Unidade",["Franca","Jacobina"])
 with col5:
     filtro_inicio = st.date_input("De",pd.to_datetime("2024-01-01").date(),format= "DD/MM/YYYY")
 with col6:
