@@ -109,7 +109,7 @@ bar_chart.update_traces(showlegend=False,textfont=dict(size=20,color='#ffffff'),
 bar_chart.layout.xaxis.fixedrange = True
 bar_chart.layout.yaxis.fixedrange = True
 bar_chart.update_yaxes(showgrid=False,visible=True,title="")
-bar_chart.update_xaxes(showgrid=False,visible=True,title="")
+bar_chart.update_xaxes(showgrid=False,visible=False,title="")
 
 
 with col7:
