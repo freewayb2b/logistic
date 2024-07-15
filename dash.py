@@ -115,7 +115,7 @@ df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COT
 total2 = df["VALOR N.FISCAL"].sum()
 qtd_nfs = df_filtrado.shape[0]
 total = df_filtrado["VALOR N.FISCAL"].sum()
-valor_frete = df_filtrado["FRETE PAGO"].sum()
+valor_frete = df["FRETE PAGO"].sum()
 
 #-----------------------------------------------------------------------------------------------------
 
