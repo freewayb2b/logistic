@@ -107,7 +107,7 @@ with col4:
     # filter_year = st.selectbox('Ano', df["Ano"].unique())
     filtro_inicio = st.date_input("De","today")
 with col5:
-    filter_month = st.selectbox('Mês',meses,index=meses.index(mes_atual))
+    # filter_month = st.selectbox('Mês',meses,index=meses.index(mes_atual))
     filtro_fim = st.date_input("Até","today")
 
 df_filtrado = df.query('@filtro_inicio <= DATA N.F. <= @filtro_fim')
