@@ -128,8 +128,6 @@ area_chart_faturamento.layout.xaxis.fixedrange = True
 area_chart_faturamento.layout.yaxis.fixedrange = True
 area_chart_faturamento.update_yaxes(showgrid=False,visible=False,title="")
 
-
-
 with col8:
     st.subheader("Faturamento do Período", anchor = False)
     st.plotly_chart(area_chart_faturamento,use_container_width= True)
@@ -149,6 +147,7 @@ borda = """
             background-color: #2F3035;
             border-radius: 15px;
             padding: 10px;
+            text-align: center;
             color: #ffffff;
             opacity: 100%;
             }
