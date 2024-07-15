@@ -36,7 +36,7 @@ df["Ano"] = df["Data"].dt.year
 df['data_string'] = df['Ano'].astype(str) + '-' + df['Mês'].astype(str).str.zfill(2) + '-' + df['dia'].astype(str).str.zfill(2)
 df["DATA N.F."] = df['data_string']
 
-df["dia"] = df["dia"].astype(int)
+df["dia"] = df["dia"].astype(str)
 
 
 
