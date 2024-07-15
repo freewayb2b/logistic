@@ -125,7 +125,7 @@ area_chart_faturamento = px.area(df_faturamento,x="dia", y="VALOR N.FISCAL",
     text=df_faturamento['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.0f}'),
             title="Faturamento Diário",color_discrete_sequence=[cor_barras])
 area_chart_faturamento.update_xaxes(dtick=1)
-area_chart_faturamento.update_traces(showlegend=False,textfont=dict(size=20,color='#ffffff'),textposition='auto')
+# area_chart_faturamento.update_traces(showlegend=False,textfont=dict(size=20,color='#ffffff'),textposition='auto')
 area_chart_faturamento.layout.xaxis.fixedrange = True
 area_chart_faturamento.layout.yaxis.fixedrange = True
 area_chart_faturamento.update_yaxes(showgrid=False,visible=False,title="")
