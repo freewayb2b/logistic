@@ -93,7 +93,9 @@ with col3:
 #-----------------------------------------------------------------------------------------------------
 #charts 
 df_columns = df_filtrado.groupby('dia')['FRETE PAGO'].sum().reset_index()
-area_chart = px.area(df_columns,x="dia", y="FRETE PAGO",title="Acompanhamento Diário")
+cor_barras = "#000000"
+area_chart = px.area(df_columns,x="dia", y="FRETE PAGO",title="Acompanhamento Diário",color_discrete_sequence=[cor_barras])
+
 area_chart.update_xaxes(dtick=1)
 
 with col6:
@@ -101,7 +103,7 @@ with col6:
 
 df_bar = df_filtrado.groupby('TRANSPORTADORA')['FRETE PAGO'].sum().reset_index()
 df_bar = df_bar.sort_values("FRETE PAGO",ascending = True)
-cor_barras = "#000000"
+
 bar_chart = px.bar(df_bar,x="FRETE PAGO", y="TRANSPORTADORA",color_discrete_sequence=[cor_barras],
             title="Frete Por Transportadora",orientation= "h",text=df_bar['FRETE PAGO'].apply(lambda x: f'R$ {x:,.0f}'))
 bar_chart.update_traces(showlegend=False,textfont=dict(size=20,color='#ffffff'),textposition='auto')
