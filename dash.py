@@ -123,7 +123,7 @@ borda = """
             background-color: #2F3035;
             border-radius: 15px;
             padding: 10px;
-            color: #D9D9D9;
+            color: #ffffff;
             opacity: 90%;
             }
             </style>
