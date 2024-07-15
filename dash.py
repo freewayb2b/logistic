@@ -128,3 +128,5 @@ borda = """
             }
             </style>
             """
+
+st.markdown(botoes, unsafe_allow_html=True)  
