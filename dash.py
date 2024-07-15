@@ -14,10 +14,10 @@ with open("style.css") as f:
 st.image("header.png")
 st.divider()
 
-col1, col2, col3, col4, col5 = st.columns([2,2,2,1,1])
-col6, col7= st.columns(2)
-col8, = st.columns(1)
+col1, col2, col3, col4, col5, col6 = st.columns([2,2,2,2,1,1])
+col6, col8 = st.columns(2)
 col9, = st.columns(1)
+col10, = st.columns(1)
 
 
 #-----------------------------------------------------------------------------------------------------
@@ -103,9 +103,9 @@ meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'
 #-----------------------------------------------------------------------------------------------------
 #filters
 
-with col4:
-    filtro_inicio = st.date_input("De",pd.to_datetime("2024-01-01").date(),format= "DD/MM/YYYY")
 with col5:
+    filtro_inicio = st.date_input("De",pd.to_datetime("2024-01-01").date(),format= "DD/MM/YYYY")
+with col6:
     filtro_fim = st.date_input("Até","today",format= "DD/MM/YYYY")
 
 
@@ -157,7 +157,7 @@ bar_chart.layout.yaxis.fixedrange = True
 bar_chart.update_yaxes(showgrid=False,visible=True,title="")
 bar_chart.update_xaxes(showgrid=False,visible=False,title="")
 
-with col7:
+with col8:
     st.plotly_chart(bar_chart,use_container_width= True)
 
 #-----------------------------------------------------------------------------------------------------
@@ -171,7 +171,7 @@ column_chart_faturamento.layout.xaxis.fixedrange = True
 column_chart_faturamento.layout.yaxis.fixedrange = True
 column_chart_faturamento.update_xaxes(showgrid= False,visible = True ,title="")
 
-with col8:
+with col9:
     st.subheader('Faturamento do Período', anchor = False)
     st.plotly_chart(column_chart_faturamento,use_container_width= True)
 #-----------------------------------------------------------------------------------------------------
@@ -186,7 +186,7 @@ df_uf = df_uf.sort_values('FRETE PAGO',ascending=False)
 df_uf['FRETE PAGO'] = df_uf['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
 
 
-with col9:
+with col10:
     st.subheader("Frete por UF", anchor = False)
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
     
