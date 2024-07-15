@@ -108,7 +108,7 @@ with col5:
     dt_fim = st.date_input("De","today",format='DD/MM/YYYY')
 
 df_filtrado = df.query('@dt_inicio <= DATA N.F <= @dt_fim')
-df_filtrado = df.query('Ano == @filter_year and Mês == @filter_month')
+# df_filtrado = df.query('Ano == @filter_year and Mês == @filter_month')
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
 #-----------------------------------------------------------------------------------------------------
