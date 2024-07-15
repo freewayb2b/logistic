@@ -169,7 +169,7 @@ column_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",
 column_chart_faturamento.update_xaxes(dtick=1)
 column_chart_faturamento.layout.xaxis.fixedrange = True
 column_chart_faturamento.layout.yaxis.fixedrange = True
-column_chart_faturamento.update_xaxes(showgrid= False,visible = False,title="")
+column_chart_faturamento.update_xaxes(showgrid= False,visible = True ,title="")
 
 with col8:
     st.subheader('Faturamento do Período', anchor = False)
