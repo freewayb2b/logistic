@@ -117,6 +117,7 @@ df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COT
 qtd_nfs = df_filtrado.shape[0]
 total = df_filtrado["VALOR N.FISCAL"].sum()
 valor_frete = df_filtrado["FRETE PAGO"].sum()
+percentual_frete = (total / valor_frete).apply(lambda x: f"{x :.1f}%")
 
 #-----------------------------------------------------------------------------------------------------
 
