@@ -181,7 +181,7 @@ df_filtrado = df_filtrado.drop(columns=["Mês","dia"])
 df_uf = df_filtrado.groupby(['UF','VALOR N.FISCAL'])['FRETE PAGO'].sum().reset_index()
 df_uf = df_uf.sort_values('FRETE PAGO',ascending=False)
 df_uf['PERC. %'] = df_uf.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
-df_uf['PERC. %'] = df_uf['PERC. %'].apply(lambda x: f"{x * 100:.1f}%")
+df_uf['PERC. %'] = df_uf['PERC. %'].apply(lambda x: f"{x :.1f}%")
 df_uf['FRETE PAGO'] = df_uf['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
 
 
