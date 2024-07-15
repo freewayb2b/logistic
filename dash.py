@@ -179,7 +179,7 @@ df_filtrado["DATA N.F."] = pd.to_datetime(df["DATA N.F."])
 df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 #-----------------------------------------------------------------------------------------------------
 
-df_uf = df_filtrado.groupby(['UF','FRETE PAGO'])['VALOR N.FISCAL'].sum().reset_index()
+df_uf = df_filtrado.groupby(['UF'])['FRETE PAGO'].sum().reset_index()
 
 with col9:
     st.subheader("Acompanhamento", anchor = False)
