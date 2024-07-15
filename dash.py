@@ -157,6 +157,7 @@ with col7:
 
 #-----------------------------------------------------------------------------------------------------
 df_faturamento = df
+df_faturamento = df_faturamento.query('Ano == @filter_year and Mês == @filter_month')
 df_faturamento = df_faturamento.groupby('dia')['VALOR N.FISCAL'].sum().reset_index()
 
 area_chart_faturamento = px.bar(df_faturamento,x="dia", y="VALOR N.FISCAL",
