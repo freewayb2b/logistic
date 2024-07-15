@@ -177,7 +177,7 @@ area_chart_faturamento.layout.yaxis.fixedrange = True
 area_chart_faturamento.update_yaxes(showgrid=False,visible=False,title="")
 
 with col8:
-    st.subheader(f'Faturamento de {filter_month} de {filter_year}', anchor = False)
+    st.subheader('Faturamento do Período', anchor = False)
     st.plotly_chart(area_chart_faturamento,use_container_width= True)
 #-----------------------------------------------------------------------------------------------------
 df_filtrado = df_filtrado.drop(columns=["Mês","dia"])
