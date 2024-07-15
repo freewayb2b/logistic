@@ -132,7 +132,7 @@ with col8:
     st.subheader("Faturamento do Período", anchor = False)
     st.plotly_chart(area_chart_faturamento,use_container_width= True)
 
-# df_filtrado = df_filtrado.drop(columns=["Mês","dia"])
+df_filtrado = df_filtrado.drop(columns=["Mês","dia"])
 
 with col9:
     st.subheader("Acompanhamento", anchor = False)
