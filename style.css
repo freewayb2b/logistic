@@ -1,3 +1,7 @@
-/* header{
+header{
     visibility: hidden;
-} */
+}
+
+section{
+    background-color: black;
+}
