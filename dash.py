@@ -129,7 +129,7 @@ area_chart_faturamento.update_traces(showlegend=False,textfont=dict(size=20,colo
 area_chart_faturamento.layout.xaxis.fixedrange = True
 area_chart_faturamento.layout.yaxis.fixedrange = True
 area_chart_faturamento.update_yaxes(showgrid=False,visible=False,title="")
-fig.area_chart_faturamento(uniformtext_minsize=8, uniformtext_mode='hide', xaxis_title='Dia', yaxis_title='Valor')
+area_chart_faturamento.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', xaxis_title='Dia', yaxis_title='Valor')
 
 with col8:
     st.subheader("Faturamento do Período", anchor = False)
