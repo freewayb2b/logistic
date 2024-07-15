@@ -41,7 +41,7 @@ df = df.drop(columns=["TNT FRANCA","%","%.1","%.2","%.3","%.4","%.5","%.6","TNT 
 
 df['FRETE PAGO'] = df['VR. FRETE COBRADO'].str.replace('.', '').str.replace(',', '.').astype(float)
 df['VALOR N.FISCAL'] = df['VALOR N.FISCAL'].str.replace('.', '').str.replace(',', '.').astype(float)
-
+df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('RODONAVES TRANSP E ENCOMENDAS LTDA', 'RODONAVES TRANSP ENC LTDA')
 
 #-----------------------------------------------------------------------------------------------------
 #mapear meses
