@@ -11,7 +11,7 @@ st.set_page_config(layout = "wide",page_title="Logística FW",page_icon="🚚")
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>",unsafe_allow_html = True)
 
-st.title("Logística - Freeway", anchor= False)
+st.title("Visão Geral Logística - Freeway", anchor= False)
 st.divider()
 
 
