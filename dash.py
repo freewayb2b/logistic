@@ -11,7 +11,7 @@ st.set_page_config(layout = "wide",page_title="Logística FW",page_icon="🚚")
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>",unsafe_allow_html = True)
 
-st.image("header.png")
+st.title("Logística - Freeway", anchor= False)
 st.divider()
 
 
@@ -223,14 +223,3 @@ borda = """
 st.markdown(borda, unsafe_allow_html=True)  
 
 
-
-borda1 = """
-            <style>
-            [data-testid="StyledFullScreenButton"]
-            {
-            display: none;
-            }
-            </style>
-            """
-
-st.markdown(borda1, unsafe_allow_html=True)  
