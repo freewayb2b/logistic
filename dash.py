@@ -11,15 +11,15 @@ st.set_page_config(layout = "wide",page_title="Logística FW",page_icon="🚚")
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>",unsafe_allow_html = True)
 
-st.title("🚚 Visão Geral Logística - Freeway", anchor= False)
-st.divider()
+# st.title("🚚 Visão Geral Logística - Freeway", anchor= False)
+# st.divider()
 
 
-coltitle, = st.columns(1)
-col1, col2, col3, col4, col5, col6 = st.columns([1.8,1.8,1.8,1.5,1,1])
-col7, col8 = st.columns(2)
-col9, = st.columns(1)
-col10, = st.columns(1)
+# coltitle, = st.columns(1)
+# col1, col2, col3, col4, col5, col6 = st.columns([1.8,1.8,1.8,1.5,1,1])
+# col7, col8 = st.columns(2)
+# col9, = st.columns(1)
+# col10, = st.columns(1)
 
 
 #-----------------------------------------------------------------------------------------------------
@@ -30,8 +30,8 @@ link = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_InxkV5GPZKYxQp1qO9d1k
 df = pd.read_csv(link)
 
 # df["Data"] = pd.to_datetime(df["DATA N.F."]).dt.strftime('%d/%m/%Y')
-with col9:
-    st.table(df)
+
+st.table(df)
 # df["Mês"] = pd.to_datetime(df["DATA N.F."]).dt.month
 # df["dia"] = pd.to_datetime(df["DATA N.F."]).dt.day
 # df["Ano"] = df["Data"].dt.year
