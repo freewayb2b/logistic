@@ -211,7 +211,7 @@ column_chart_faturamento.update_xaxes(showgrid= False,visible = True ,title="")
 with col9:
     st.plotly_chart(column_chart_faturamento,use_container_width= True)
 #-----------------------------------------------------------------------------------------------------
-df_filtrado = df_filtrado.drop(columns=["Mês","dia","CLIENTE","TRANSPORTADORA"])
+df_filtrado = df_filtrado.drop(columns=["Mês","dia","CLIENTE"])
 df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 #-----------------------------------------------------------------------------------------------------
 
