@@ -168,17 +168,12 @@ cor_barras = "#000000"
 #-----------------------------------------------------------------------------------------------------
 #bar_chart
 
-df_bar = df_filtrado.groupby('TRANSPORTADORA',)['FRETE PAGO'].sum().reset_index()
+# df_bar = df_filtrado.groupby('TRANSPORTADORA',)['FRETE PAGO'].sum().reset_index()
+
+df_bar = df.groupby('TRANSPORTADORA').agg({'FRETE PAGO': 'sum','FRETE PAGO': 'sum'}).reset_index()
+
 df_bar = df_bar.sort_values("FRETE PAGO",ascending = False)
 
-
-# bar_chart = px.bar(df_bar,x="FRETE PAGO", y="TRANSPORTADORA",color_discrete_sequence=[cor_barras],
-#             title="Frete Por Transportadora",orientation= "h",text=df_bar['FRETE PAGO'].apply(lambda x: f'R$ {x:,.0f}'))
-# bar_chart.update_traces(showlegend=False,textfont=dict(size=20,color='#ffffff'),textposition='auto')
-# bar_chart.layout.xaxis.fixedrange = True
-# bar_chart.layout.yaxis.fixedrange = True
-# bar_chart.update_yaxes(showgrid=False,visible=True,title="")
-# bar_chart.update_xaxes(showgrid=False,visible=False,title="")
 
 with col8:
     st.dataframe(df_bar,use_container_width= True, hide_index = True)
