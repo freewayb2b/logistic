@@ -45,10 +45,11 @@ df['FRETE PAGO'] = df['VR. FRETE COBRADO'].str.replace('.', '').str.replace(',',
 df['VALOR N.FISCAL'] = df['VALOR N.FISCAL'].str.replace('.', '').str.replace(',', '.').astype(float)
 
 
+
 #-----------------------------------------------------------------------------------------
 #renomear transportadoras
-# df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('RODONAVES TRANSP E ENCOMENDAS LTDA', 'RODONAVES')
-# df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('RODONAVES TRANSP ENC LTDA', 'RODONAVES')
+df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('RODONAVES TRANSP E ENCOMENDAS LTDA', 'RODONAVES')
+df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('RODONAVES TRANSP ENC LTDA', 'RODONAVES')
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('TNT MERCURIO CARGAS E ENCOMENDAS EXPRESS', 'TNT')
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('TRANSPORTES TRANSLOVATO LTDA', 'TRANSLOVATO')
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('VIACAO GARCIA LTDA', 'VIACAO GARCIA')
@@ -164,7 +165,7 @@ df_bar = df_bar.sort_values("FRETE PAGO",ascending = True)
 
 
 
-# df_bar['%'] = df_bar.apply(lambda row: f"{(row['FRETE PAGO'] / row['total']) * 100:.1f}%", axis=1)
+
 
 
 bar_chart = px.bar(df_bar,x="FRETE PAGO", y="TRANSPORTADORA",color_discrete_sequence=[cor_barras],
