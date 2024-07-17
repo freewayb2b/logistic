@@ -170,7 +170,7 @@ cor_barras = "#000000"
 
 # df_bar = df_filtrado.groupby('TRANSPORTADORA',)['FRETE PAGO'].sum().reset_index()
 
-df_bar = df.groupby('TRANSPORTADORA').agg({'FRETE PAGO': 'sum','FRETE PAGO': 'sum'}).reset_index()
+df_bar = df.groupby('TRANSPORTADORA').agg({'VALOR N.FISCAL': 'sum','FRETE PAGO': 'sum'}).reset_index()
 
 df_bar = df_bar.sort_values("FRETE PAGO",ascending = False)
 
