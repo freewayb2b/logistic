@@ -178,6 +178,9 @@ df_bar = df.groupby('TRANSPORTADORA').agg({'VALOR N.FISCAL': 'sum','FRETE PAGO':
 df_bar = df_bar.sort_values("FRETE PAGO",ascending = False)
 df_bar['PERC. %'] = df_bar.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
 df_bar['PERC. %'] = df_bar['PERC. %'].apply(lambda x: f"{x :.1f}%")
+df_bar['FRETE PAGO'] = df_bar['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
+df_bar['VALOR N.FISCAL'] = df_bar['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.2f}')
+
 
 with col8:
     st.subheader("Por Transportadora", anchor = False)
