@@ -44,8 +44,6 @@ df = df.drop(columns=["TNT FRANCA","%","%.1","%.2","%.3","%.4","%.5","%.6","TNT 
 df['FRETE PAGO'] = df['VR. FRETE COBRADO'].str.replace('.', '').str.replace(',', '.').astype(float)
 df['VALOR N.FISCAL'] = df['VALOR N.FISCAL'].str.replace('.', '').str.replace(',', '.').astype(float)
 
-
-
 #-----------------------------------------------------------------------------------------
 #renomear transportadoras
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('RODONAVES TRANSP E ENCOMENDAS LTDA', 'RODONAVES')
@@ -54,6 +52,8 @@ df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('TNT MERCURIO CARGAS E E
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('TRANSPORTES TRANSLOVATO LTDA', 'TRANSLOVATO')
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('VIACAO GARCIA LTDA', 'VIACAO GARCIA')
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('MOVVI LOGÍSTICA LTDA', 'MOVVI')
+df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('UNIÃO TRANSP DE ENCOMENDAS E COM. E VEIC', 'MOVVI')
+
 
 
 
