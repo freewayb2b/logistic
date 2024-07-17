@@ -181,7 +181,7 @@ df_bar = df_bar.sort_values("FRETE PAGO",ascending = False)
 # bar_chart.update_xaxes(showgrid=False,visible=False,title="")
 
 with col8:
-    st.dataframe(df_bar,use_container_width= True)
+    st.dataframe(df_bar,use_container_width= True, hide_index = True)
 
 
 df_pie = df_filtrado.groupby('UNIDADE')['FRETE PAGO'].sum().reset_index()    
