@@ -180,6 +180,7 @@ df_bar['PERC. %'] = df_bar.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.F
 df_bar['PERC. %'] = df_bar['PERC. %'].apply(lambda x: f"{x :.1f}%")
 
 with col8:
+    st.subheader("Por Transportadora", anchor = False)
     st.dataframe(df_bar,use_container_width= True, hide_index = True)
 
 
