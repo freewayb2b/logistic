@@ -177,7 +177,7 @@ with col8:
 df_pie = df_filtrado.groupby('UNIDADE')['FRETE PAGO'].sum().reset_index()    
 
 pie_chart = px.pie(df_pie,values = "FRETE PAGO", names ="UNIDADE",title = "Frete por Unidade",
-category_orders={'UNIDADE':["Franca","Jacobina"]},color_discrete_sequence=["#058c42","#00b4d8"])
+category_orders={'UNIDADE':["Franca","Jacobina"]},color_discrete_sequence=["#642705","#BC693A"])
 pie_chart.update_traces(showlegend=True,textfont=dict(size=17,color='#ffffff'),textposition='outside')
 
 
