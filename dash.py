@@ -31,7 +31,7 @@ df = pd.read_csv(link)
 
 # df["Data"] = pd.to_datetime(df["DATA N.F."]).dt.strftime('%d/%m/%Y')
 
-st.table(df)
+st.dataframe(df)
 # df["Mês"] = pd.to_datetime(df["DATA N.F."]).dt.month
 # df["dia"] = pd.to_datetime(df["DATA N.F."]).dt.day
 # df["Ano"] = df["Data"].dt.year
