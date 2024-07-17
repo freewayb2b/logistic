@@ -154,8 +154,8 @@ area_chart.layout.yaxis.fixedrange = True
 area_chart.update_yaxes(showgrid=False,visible=False,title="Valor")
 area_chart.update_xaxes(showgrid=False,visible=True,title="Dia")
 
-with col7:
-    st.plotly_chart(area_chart,use_container_width= True)
+# with col7:
+#     st.plotly_chart(area_chart,use_container_width= True)
 
 #-----------------------------------------------------------------------------------------------------
 
@@ -178,8 +178,9 @@ df_pie = df_filtrado.groupby('UNIDADE')['FRETE PAGO'].sum().reset_index()
 
 pie_chart = px.pie(df_pie,values = "FRETE PAGO", names ="UNIDADE",title = "Frete por Unidade")
 
-with col8:
+with col7:
     st.plotly_chart(pie_chart,use_container_width= True)
+
 
 #-----------------------------------------------------------------------------------------------------
 
