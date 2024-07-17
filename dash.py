@@ -176,7 +176,10 @@ with col8:
 
 df_pie = df_filtrado.groupby('UNIDADE')['FRETE PAGO'].sum().reset_index()    
 
-pie_chart = px.pie(df_pie,values = "FRETE PAGO", names ="UNIDADE",title = "Frete por Unidade")
+pie_chart = px.pie(df_pie,values = "FRETE PAGO", names ="UNIDADE",title = "Frete por Unidade",
+category_orders={'UNIDADE':["Franca","Jacobina"]},color_discrete_sequence=["#058c42","#00b4d8"])
+pie_chart.update_traces(showlegend=True,textfont=dict(size=17,color='#ffffff'),textposition='outside')
+
 
 with col7:
     st.plotly_chart(pie_chart,use_container_width= True)
