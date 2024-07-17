@@ -143,19 +143,8 @@ with col4:
     st.metric("Percentual Frete",f'🧮 {percentual_frete}')
 
 #-----------------------------------------------------------------------------------------------------
-#charts 
-
-df_columns = df_filtrado.groupby('dia')['FRETE PAGO'].sum().reset_index()
+#charts colors
 cor_barras = "#000000"
-area_chart = px.area(df_columns,x="dia", y="FRETE PAGO",title="Detalhamento Frete Diário",color_discrete_sequence=[cor_barras])
-area_chart.update_xaxes(dtick=1)
-area_chart.layout.xaxis.fixedrange = True
-area_chart.layout.yaxis.fixedrange = True
-area_chart.update_yaxes(showgrid=False,visible=False,title="Valor")
-area_chart.update_xaxes(showgrid=False,visible=True,title="Dia")
-
-# with col7:
-#     st.plotly_chart(area_chart,use_container_width= True)
 
 #-----------------------------------------------------------------------------------------------------
 
@@ -201,7 +190,6 @@ with col9:
     st.plotly_chart(column_chart_faturamento,use_container_width= True)
 #-----------------------------------------------------------------------------------------------------
 df_filtrado = df_filtrado.drop(columns=["Mês","dia","CLIENTE"])
-# df_filtrado["DATA N.F."] = pd.to_datetime(df["DATA N.F."])
 df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 #-----------------------------------------------------------------------------------------------------
 
