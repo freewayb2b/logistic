@@ -49,7 +49,7 @@ df['VALOR N.FISCAL'] = df['VALOR N.FISCAL'].str.replace('.', '').str.replace(','
 #renomear transportadoras
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('RODONAVES TRANSP E ENCOMENDAS LTDA', 'RODONAVES')
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('RODONAVES TRANSP ENC LTDA', 'RODONAVES')
-
+df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('TNT MERCURIO CARGAS E ENCOMENDAS EXPRESS', 'TNT')
 
 
 
