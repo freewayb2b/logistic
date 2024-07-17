@@ -62,9 +62,6 @@ df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('FL BRASIL HOLDING, LOG 
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('FEDEX BRASIL LOGISTICA E TRANSPORTE S.A', 'FEDEX')
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('RODONAVES TRANSPORTES E ENCOM.  LTDA', 'RODONAVES')
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('TNT MERCURIO CARGAS E ENCOMENDAS', 'TNT')
-
-
-
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('RACE OPERADOR LOGISTICO EIRELI', 'RACE')
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('MENGUE EXPRESS TRANSPORTES LTDA', 'MENGUE EXPRESS')
 
@@ -181,7 +178,7 @@ cor_barras = "#000000"
 df_bar = df.groupby('TRANSPORTADORA').agg({'VALOR N.FISCAL': 'sum','FRETE PAGO': 'sum'}).reset_index()
 
 df_bar = df_bar.sort_values("FRETE PAGO",ascending = False)
-
+df_bar['PERC. %'] = df_bar.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
 
 with col8:
     st.dataframe(df_bar,use_container_width= True, hide_index = True)
