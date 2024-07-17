@@ -54,13 +54,6 @@ df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('TRANSPORTES TRANSLOVATO
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('VIACAO GARCIA LTDA', 'VIACAO GARCIA')
 
 
-
-
-
-
-
-
-
 df['PERC. %'] = df.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
 df['PERC. %'] = df['PERC. %'].apply(lambda x: f"{x :.1f}%")
 df["UNIDADE"] = df['N. F.'].astype(str).str.slice(0, 1)
