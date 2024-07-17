@@ -173,12 +173,11 @@ cor_barras = "#000000"
 #-----------------------------------------------------------------------------------------------------
 #bar_chart
 
-# df_bar = df_filtrado.groupby('TRANSPORTADORA',)['FRETE PAGO'].sum().reset_index()
 
 df_bar = df.groupby('TRANSPORTADORA').agg({'VALOR N.FISCAL': 'sum','FRETE PAGO': 'sum'}).reset_index()
-
 df_bar = df_bar.sort_values("FRETE PAGO",ascending = False)
 df_bar['PERC. %'] = df_bar.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
+df_bar['PERC. %'] = df_bar['PERC. %'].apply(lambda x: f"{x :.1f}%")
 
 with col8:
     st.dataframe(df_bar,use_container_width= True, hide_index = True)
