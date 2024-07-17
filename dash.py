@@ -194,7 +194,6 @@ column_chart_faturamento.layout.yaxis.fixedrange = True
 column_chart_faturamento.update_xaxes(showgrid= False,visible = True ,title="")
 
 with col9:
-    st.subheader('Faturamento do Período', anchor = False)
     st.plotly_chart(column_chart_faturamento,use_container_width= True)
 #-----------------------------------------------------------------------------------------------------
 df_filtrado = df_filtrado.drop(columns=["Mês","dia","CLIENTE"])
