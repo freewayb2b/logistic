@@ -158,7 +158,8 @@ cor_barras = "#000000"
 
 #-----------------------------------------------------------------------------------------------------
 #bar_chart
-df_bar = df_filtrado.groupby('TRANSPORTADORA')['FRETE PAGO'].sum().reset_index()
+
+df_bar = df_filtrado.groupby('TRANSPORTADORA',)['FRETE PAGO'].sum().reset_index()
 df_bar = df_bar.sort_values("FRETE PAGO",ascending = True)
 
 
