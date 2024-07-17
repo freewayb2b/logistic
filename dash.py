@@ -178,6 +178,9 @@ df_pie = df_filtrado.groupby('UNIDADE')['FRETE PAGO'].sum().reset_index()
 
 pie_chart = px.pie(df_pie,values = "FRETE PAGO", names ="UNIDADE",title = "Frete por Unidade")
 
+with col8:
+    st.plotly_chart(pie_chart,use_container_width= True)
+
 #-----------------------------------------------------------------------------------------------------
 
 df_faturamento = df_filtrado.groupby('dia')['VALOR N.FISCAL'].sum().reset_index()
