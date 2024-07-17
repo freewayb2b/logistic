@@ -29,7 +29,7 @@ link = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_InxkV5GPZKYxQp1qO9d1k
 
 df = pd.read_csv(link)
 
-df["Data"] = pd.to_datetime(df["DATA N.F."]).dt.strftime('%d/%m/%Y')
+# df["Data"] = pd.to_datetime(df["DATA N.F."]).dt.strftime('%d/%m/%Y')
 df["Mês"] = pd.to_datetime(df["DATA N.F."]).dt.month
 df["dia"] = pd.to_datetime(df["DATA N.F."]).dt.day
 df["Ano"] = df["Data"].dt.year
