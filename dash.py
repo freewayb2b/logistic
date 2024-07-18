@@ -141,7 +141,9 @@ with col6:
 
 
 df_filtrado = df.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE == @filtro_fabrica')
+
 df_nf = df_filtrado.groupby(['DATA N.F.'])['VALOR N.FISCAL'].sum().reset_index()
+
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
 #-----------------------------------------------------------------------------------------------------
@@ -184,7 +186,8 @@ df_table['VALOR N.FISCAL'] = df_table['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:
 
 with col8:
     st.subheader("Por Transportadora", anchor = False)
-    st.dataframe(df_table,use_container_width= True, hide_index = True)
+    # st.dataframe(df_table,use_container_width= True, hide_index = True)
+    st.dataframe(df_nf,use_container_width= True, hide_index = True)
 
 
 df_pie = df_filtrado.groupby('UNIDADE')['FRETE PAGO'].sum().reset_index()    
