@@ -173,17 +173,17 @@ cor_barras = "#000000"
 #-----------------------------------------------------------------------------------------------------
 #table
 
-df_bar = df_filtrado.groupby('TRANSPORTADORA').agg({'VALOR N.FISCAL': 'sum','FRETE PAGO': 'sum'}).reset_index()
-df_bar = df_bar.sort_values("FRETE PAGO",ascending = False)
-df_bar['PERC. %'] = df_bar.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
-df_bar['PERC. %'] = df_bar['PERC. %'].apply(lambda x: f"{x :.1f}%")
-df_bar['FRETE PAGO'] = df_bar['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
-df_bar['VALOR N.FISCAL'] = df_bar['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.2f}')
+df_table = df_filtrado.groupby('TRANSPORTADORA').agg({'VALOR N.FISCAL': 'sum','FRETE PAGO': 'sum'}).reset_index()
+df_table = df_table.sort_values("FRETE PAGO",ascending = False)
+df_table['PERC. %'] = df_table.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
+df_table['PERC. %'] = df_table['PERC. %'].apply(lambda x: f"{x :.1f}%")
+df_table['FRETE PAGO'] = df_table['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
+df_table['VALOR N.FISCAL'] = df_table['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.2f}')
 
 
 with col8:
     st.subheader("Por Transportadora", anchor = False)
-    st.dataframe(df_bar,use_container_width= True, hide_index = True)
+    st.dataframe(df_table,use_container_width= True, hide_index = True)
 
 
 df_pie = df_filtrado.groupby('UNIDADE')['FRETE PAGO'].sum().reset_index()    
