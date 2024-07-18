@@ -190,7 +190,7 @@ df_table['VALOR N.FISCAL'] = df_table['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:
 with col8:
     st.subheader("Por Transportadora", anchor = False)
     # st.dataframe(df_table,use_container_width= True, hide_index = True)
-    st.dataframe(df_nf,use_container_width= True, hide_index = True)
+    st.dataframe(df_procx,use_container_width= True, hide_index = True)
 
 
 df_pie = df_filtrado.groupby('UNIDADE')['FRETE PAGO'].sum().reset_index()    
