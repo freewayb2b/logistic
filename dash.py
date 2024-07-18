@@ -171,7 +171,7 @@ with col4:
 cor_barras = "#000000"
 
 #-----------------------------------------------------------------------------------------------------
-#bar_chart
+#table
 
 df_bar = df_filtrado.groupby('TRANSPORTADORA').agg({'VALOR N.FISCAL': 'sum','FRETE PAGO': 'sum'}).reset_index()
 df_bar = df_bar.sort_values("FRETE PAGO",ascending = False)
