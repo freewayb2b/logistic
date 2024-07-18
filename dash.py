@@ -66,7 +66,7 @@ df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('RACE OPERADOR LOGISTICO
 df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('MENGUE EXPRESS TRANSPORTES LTDA', 'MENGUE EXPRESS')
 
 
-
+#-----------------------------------------------------------------------------------------------------
 
 df['PERC. %'] = df.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
 df['PERC. %'] = df['PERC. %'].apply(lambda x: f"{x :.1f}%")
@@ -141,6 +141,8 @@ with col6:
 
 
 df_filtrado = df.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE == @filtro_fabrica')
+df_filtrado = df_filtrado.grouby(['N. F.','DATA N.F.','PEDIDO','CLIENTE','CIDADE','UF','TRANSPORTADORA',
+                'PESO'])['VALOR N.FISCAL'].sum().reset_index()
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
 #-----------------------------------------------------------------------------------------------------
