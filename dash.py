@@ -146,7 +146,7 @@ df_filtrado = df.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE
 df_nf = df_filtrado.groupby(['N. F.'])['VALOR N.FISCAL'].sum().reset_index()
 # df_nf = df_filtrado.groupby(['N. F.'])['VALOR N.FISCAL'].sum().reset_index()
 # df_procx = pd.merge(df_nf, df_filtrado, on='N. F.', how='left')
-df_procx = pd.merge(df_filtrado, df_nf[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
+# df_procx = pd.merge(df_nf, df_filtrado[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
 
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
@@ -190,8 +190,8 @@ df_table['VALOR N.FISCAL'] = df_table['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:
 
 with col8:
     st.subheader("Por Transportadora", anchor = False)
-    # st.dataframe(df_table,use_container_width= True, hide_index = True)
-    st.dataframe(df_procx,use_container_width= True, hide_index = True)
+    st.dataframe(df_table,use_container_width= True, hide_index = True)
+    # st.dataframe(df_procx,use_container_width= True, hide_index = True)
 
 
 df_pie = df_filtrado.groupby('UNIDADE')['FRETE PAGO'].sum().reset_index()    
