@@ -141,8 +141,7 @@ with col6:
 
 
 df_filtrado = df.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE == @filtro_fabrica')
-df_filtrado = df_filtrado.grouby(['N. F.','DATA N.F.','PEDIDO','CLIENTE','CIDADE','UF','TRANSPORTADORA',
-                'PESO'])['VALOR N.FISCAL'].sum().reset_index()
+df_filtrado = df_filtrado.grouby(['N. F.','DATA N.F.','PEDIDO','CLIENTE','CIDADE','UF','TRANSPORTADORA','PESO'])['VALOR N.FISCAL'].sum().reset_index()
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
 #-----------------------------------------------------------------------------------------------------
