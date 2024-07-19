@@ -239,7 +239,7 @@ df_uf['FRETE PAGO'] = df_uf['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
 
 
 with col10:
-    st.subheader("Frete por UF", anchor = False)
+    st.subheader("Resumo Geral", anchor = False)
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
    
     
