@@ -229,9 +229,9 @@ df_filtrado = df_filtrado.drop(columns=["Mês","dia","Ano"])
 df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 #-----------------------------------------------------------------------------------------------------
 
-df_uf = df_filtrado.groupby('UF').agg({'VALOR N.FISCAL': 'sum','FRETE PAGO': 'sum'}).reset_index()
-df_uf['PERC. %'] = df_uf.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
-df_uf['PERC. %'] = df_uf['PERC. %'].apply(lambda x: f"{x :.1f}%")
+df_uf = df_filtrado.groupby('UF')['VALOR N.FISCAL'].sum().reset_index()
+# df_uf['PERC. %'] = df_uf.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
+# df_uf['PERC. %'] = df_uf['PERC. %'].apply(lambda x: f"{x :.1f}%")
 df_uf = df_uf.sort_values('VALOR N.FISCAL',ascending=False)
 
 
@@ -256,13 +256,7 @@ with col10:
 
 with col11:
     st.subheader("Frete Por Estado", anchor = False)
-    # uf_chart_fat = px.bar(df_uf_fat,x="VALOR N.FISCAL",y="UF",orientation = "h",
-    # title='Faturamento por Estado',color_discrete_sequence=[cor_barras])
-    # uf_chart_fat.layout.xaxis.fixedrange = True
-    # uf_chart_fat.layout.yaxis.fixedrange = True
-    # uf_chart_fat.update_xaxes(showgrid= False,visible = False ,title="")
-    # uf_chart_fat.update_yaxes(showgrid= False,visible = True ,title="")
-    # st.plotly_chart(uf_chart_fat,use_container_width= True) 
+
     
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
