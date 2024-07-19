@@ -144,7 +144,7 @@ with col6:
 df_filtrado = df.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE == @filtro_fabrica')
 #---------------------------------------------------------------------------------------------
 
-df_nf = df_filtrado.groupby(['UNIDADE','N. F.','DATA N.F.','CLIENTE','CIDADE','UF','TRANSPORTADORA'])['VALOR N.FISCAL'].sum().reset_index()
+df_nf = df_filtrado.groupby(['UNIDADE','N. F.','DATA N.F.','CIDADE','UF','TRANSPORTADORA'])['VALOR N.FISCAL'].sum().reset_index()
 
 
 # df_nf = df_filtrado.groupby(['N. F.'])['VALOR N.FISCAL'].sum().reset_index()
