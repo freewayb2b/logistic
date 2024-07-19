@@ -247,7 +247,7 @@ with col12:
     st.subheader("Detalhamento Geral", anchor = False)
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
-with col10:
+with col11:
     uf_chart = px.bar(df_uf,x="FRETE PAGO",y="UF",orientation = "h",
     title='Frete por Estado',color_discrete_sequence=[cor_barras])
     uf_chart.layout.xaxis.fixedrange = True
@@ -256,7 +256,7 @@ with col10:
     uf_chart.update_yaxes(showgrid= False,visible = True ,title="")
     st.plotly_chart(uf_chart,use_container_width= True) 
 
-with col11:
+with col10:
     uf_chart_fat = px.bar(df_uf_fat,x="VALOR N.FISCAL",y="UF",orientation = "h",
     title='Faturamento por Estado',color_discrete_sequence=[cor_barras])
     uf_chart_fat.layout.xaxis.fixedrange = True
