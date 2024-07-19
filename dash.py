@@ -249,7 +249,7 @@ with col10:
     title='Frete por Transportadora',color_discrete_sequence=[cor_barras])
     uf_chart.layout.xaxis.fixedrange = True
     uf_chart.layout.yaxis.fixedrange = True
-    uf_chart.update_xaxes(showgrid= False,visible = True ,title="")
+    uf_chart.update_xaxes(showgrid= False,visible = False ,title="")
     st.plotly_chart(uf_chart,use_container_width= True) 
     
 #-----------------------------------------------------------------------------------------------------
