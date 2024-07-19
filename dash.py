@@ -38,8 +38,8 @@ df['data_string'] = df['Ano'].astype(str) + '-' + df['Mês'].astype(str).str.zfi
 df["DATA N.F."] = df['data_string']
 df["DATA N.F."] = pd.to_datetime(df["DATA N.F."])
 
-df = df.drop(columns=["TNT FRANCA","%","%.1","%.2","%.3","%.4","%.5","%.6","TNT JACOBINA","MENOR VR. FRETE","TRANSP. MENOR FRETE",'data_string',"Data",
-                "%.7","F.L. LOG.","TROCA TRANS.","VITLOG","RODO-NAVES","VR. FRETE CALCULADO N.F.","VR. DIFER."])
+# df = df.drop(columns=["TNT FRANCA","%","%.1","%.2","%.3","%.4","%.5","%.6","TNT JACOBINA","MENOR VR. FRETE","TRANSP. MENOR FRETE",'data_string',"Data",
+#                 "%.7","F.L. LOG.","TROCA TRANS.","VITLOG","RODO-NAVES","VR. FRETE CALCULADO N.F.","VR. DIFER."])
 
 df['FRETE PAGO'] = df['VR. FRETE COBRADO'].str.replace('.', '').str.replace(',', '.').astype(float)
 df['VALOR N.FISCAL'] = df['VALOR N.FISCAL'].str.replace('.', '').str.replace(',', '.').astype(float)
