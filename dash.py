@@ -254,7 +254,7 @@ with col10:
     st.dataframe(df_uf,use_container_width = True, hide_index = True)
 
 
-with col10:
+with col11:
     st.write("Frete Por Estado", anchor = False)
     # uf_chart_fat = px.bar(df_uf_fat,x="VALOR N.FISCAL",y="UF",orientation = "h",
     # title='Faturamento por Estado',color_discrete_sequence=[cor_barras])
