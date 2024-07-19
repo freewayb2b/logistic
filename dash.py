@@ -149,16 +149,14 @@ df_filtrado = df_filtrado.groupby(['UNIDADE','N. F.','DATA N.F.','CIDADE','UF','
 
 # df_nf = df_filtrado.groupby(['N. F.'])['VALOR N.FISCAL'].sum().reset_index()
 
-df_proc = df.drop_duplicates(subset='N. F.', keep='first')
-# df_proc = df_filtrado.drop_duplicates(subset='N. F.', keep='first')
-
+df_proc = df_filtrado.drop_duplicates(subset='N. F.', keep='first')
 
 df_nf = pd.merge(df_filtrado, df_proc[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
 
 #-----------------------------------------------------------------------------------------------------
 
 
-# df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
+df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
 #-----------------------------------------------------------------------------------------------------
 
