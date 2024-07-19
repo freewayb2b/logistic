@@ -141,7 +141,7 @@ with col6:
 
 df_filtrado = df.groupby(['UNIDADE','N. F.','DATA N.F.','CIDADE','UF','TRANSPORTADORA','Ano','Mês',"dia"])['VALOR N.FISCAL'].sum().reset_index()
 
-df_filtrado = df_filtrado.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE == @filtro_fabrica and FRETE PAGO < 0')
+df_filtrado = df_filtrado.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE == @filtro_fabrica')
 
 
 #---------------------------------------------------------------------------------------------
