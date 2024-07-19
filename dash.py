@@ -151,7 +151,7 @@ df_filtrado = df_filtrado.groupby(['UNIDADE','N. F.','DATA N.F.','CIDADE','UF','
 
 df_proc = df_filtrado.drop_duplicates(subset='N. F.', keep='first')
 
-df_nf = pd.merge(df_nf, df_proc[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
+df_nf = pd.merge(df_filtrado, df_proc[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
 
 #-----------------------------------------------------------------------------------------------------
 
