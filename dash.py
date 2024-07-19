@@ -246,7 +246,7 @@ with col10:
 
 with col11:
     uf_chart = px.bar(df_uf,x="FRETE PAGO",y="UF",orientation = "h")
-    st.plotly_chart(uf_chart) 
+    st.plotly_chart(uf_chart,use_container_width= True) 
     
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
