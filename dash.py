@@ -232,10 +232,14 @@ df_filtrado = df_filtrado.drop(columns=["Mês","dia","Ano"])
 df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 #-----------------------------------------------------------------------------------------------------
 
-df_uf = df_filtrado.groupby(['UF','VALOR N.FISCAL'])['FRETE PAGO'].sum().reset_index()
-df_uf = df_uf.sort_values('FRETE PAGO',ascending=False)
+# df_uf = df_filtrado.groupby(['UF','VALOR N.FISCAL'])['FRETE PAGO'].sum().reset_index()
+# df_uf = df_uf.sort_values('FRETE PAGO',ascending=False)
 
-df_uf['FRETE PAGO'] = df_uf['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
+# df_uf['FRETE PAGO'] = df_uf['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
+
+df_filtrado['FRETE PAGO'] = df_filtrado['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
+df_filtrado['VALOR N.FISCAL'] = df_filtrado['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.2f}')
+
 
 
 with col10:
