@@ -158,7 +158,7 @@ df_nf = pd.merge(df_filtrado, df_proc[['N. F.', 'FRETE PAGO']], on='N. F.', how=
 #-----------------------------------------------------------------------------------------------------
 
 
-df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
+# df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
 #-----------------------------------------------------------------------------------------------------
 
