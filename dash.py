@@ -250,12 +250,12 @@ with col12:
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
 with col10:
-    st.write("Faturamento Por Estado", anchor = False)
+    st.subheader("Faturamento Por Estado", anchor = False)
     st.dataframe(df_uf,use_container_width = True, hide_index = True)
 
 
 with col11:
-    st.write("Frete Por Estado", anchor = False)
+    st.subheader("Frete Por Estado", anchor = False)
     # uf_chart_fat = px.bar(df_uf_fat,x="VALOR N.FISCAL",y="UF",orientation = "h",
     # title='Faturamento por Estado',color_discrete_sequence=[cor_barras])
     # uf_chart_fat.layout.xaxis.fixedrange = True
