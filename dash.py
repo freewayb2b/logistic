@@ -245,7 +245,8 @@ with col10:
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
 with col11:
-    uf_chart = px.bar(df_uf,x="UF",y="FRETE PAGO")  
+    uf_chart = px.bar(df_uf,x="UF",y="FRETE PAGO")
+    st.plotly_chart(uf_chart) 
     
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
