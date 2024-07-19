@@ -245,7 +245,8 @@ with col12:
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
 with col10:
-    uf_chart = px.bar(df_uf,x="FRETE PAGO",y="UF",orientation = "h")
+    uf_chart = px.bar(df_uf,x="FRETE PAGO",y="UF",orientation = "h",
+    title='Frete por Transportadora',color_discrete_sequence=[cor_barras])
     st.plotly_chart(uf_chart,use_container_width= True) 
     
 #-----------------------------------------------------------------------------------------------------
