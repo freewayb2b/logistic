@@ -19,7 +19,7 @@ coltitle, = st.columns(1)
 col1, col2, col3, col4, col5, col6 = st.columns([1.8,1.8,1.8,1.5,1,1])
 col7, col8 = st.columns(2)
 col9, = st.columns(1)
-col10, = st.columns(1)
+col10, col11 = st.columns(2)
 col11, = st.columns(1)
 
 #-----------------------------------------------------------------------------------------------------
@@ -240,11 +240,11 @@ df_filtrado['VALOR N.FISCAL'] = df_filtrado['VALOR N.FISCAL'].apply(lambda x: f'
 
 
 
-with col10:
+with col12:
     st.subheader("Detalhamento Geral", anchor = False)
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
 
-with col11:
+with col10:
     uf_chart = px.bar(df_uf,x="FRETE PAGO",y="UF",orientation = "h")
     st.plotly_chart(uf_chart,use_container_width= True) 
     
