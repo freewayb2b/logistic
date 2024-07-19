@@ -239,7 +239,6 @@ df_filtrado['FRETE PAGO'] = df_filtrado['FRETE PAGO'].apply(lambda x: f'R$ {x:,.
 df_filtrado['VALOR N.FISCAL'] = df_filtrado['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.2f}')
 
 
-
 with col12:
     st.subheader("Detalhamento Geral", anchor = False)
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
