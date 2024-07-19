@@ -231,7 +231,11 @@ df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 
 df_uf = df_filtrado.groupby(['UF'])['FRETE PAGO'].sum().reset_index()
 df_uf = df_uf.sort_values('FRETE PAGO',ascending=True)
-# df_uf['FRETE PAGO'] = df_uf['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
+
+
+
+df_uf_fat = df_filtrado.groupby(['UF'])['VALOR N.FISCAL'].sum().reset_index()
+df_uf_fat = df_uf_fat.sort_values('VALOR N.FISCAL',ascending=True)
 
 
 #-----------------------------------------------------------------------------------------------------
@@ -245,12 +249,21 @@ with col12:
 
 with col10:
     uf_chart = px.bar(df_uf,x="FRETE PAGO",y="UF",orientation = "h",
-    title='Frete por Transportadora',color_discrete_sequence=[cor_barras])
+    title='Frete por Estado',color_discrete_sequence=[cor_barras])
     uf_chart.layout.xaxis.fixedrange = True
     uf_chart.layout.yaxis.fixedrange = True
     uf_chart.update_xaxes(showgrid= False,visible = False ,title="")
     uf_chart.update_yaxes(showgrid= False,visible = True ,title="")
     st.plotly_chart(uf_chart,use_container_width= True) 
+
+with col11:
+    uf_chart_fat = px.bar(df_uf_fat,x="VALOR N.FISCAL",y="UF",orientation = "h",
+    title='Faturamento por Estado',color_discrete_sequence=[cor_barras])
+    uf_chart_fat.layout.xaxis.fixedrange = True
+    uf_chart_fat.layout.yaxis.fixedrange = True
+    uf_chart_fat.update_xaxes(showgrid= False,visible = False ,title="")
+    uf_chart_fat.update_yaxes(showgrid= False,visible = True ,title="")
+    st.plotly_chart(uf_chart_fat,use_container_width= True) 
     
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
