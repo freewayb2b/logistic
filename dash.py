@@ -234,10 +234,12 @@ df_uf['FATURAMENTO'] = df_uf['VALOR N.FISCAL']
 df_uf = df_uf.drop(columns="VALOR N.FISCAL")
 df_uf = df_uf.sort_values('FATURAMENTO',ascending=False)
 
+#-----------------------------------------------------------------------------------------------------
 
-
-df_uf_fat = df_filtrado.groupby(['UF'])['VALOR N.FISCAL'].sum().reset_index()
-df_uf_fat = df_uf_fat.sort_values('VALOR N.FISCAL',ascending=True)
+df_uf_frete = df_filtrado.groupby('UF').agg({'VALOR N.FISCAL': 'sum','FRETE PAGO': 'sum'}).reset_index()
+df_uf_frete['PERC. %'] = df_uf_frete.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
+df_uf_frete['PERC. %'] = df_uf_frete['PERC. %'].apply(lambda x: f"{x :.1f}%")
+df_uf_frete = df_uf_frete.sort_values('VALOR N.FISCAL',ascending=True)
 
 
 #-----------------------------------------------------------------------------------------------------
