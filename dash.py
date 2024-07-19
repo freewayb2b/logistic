@@ -69,8 +69,7 @@ df['TRANSPORTADORA'] = df['TRANSPORTADORA'].str.replace('MENGUE EXPRESS TRANSPOR
 
 #-----------------------------------------------------------------------------------------------------
 
-df['PERC. %'] = df.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
-df['PERC. %'] = df['PERC. %'].apply(lambda x: f"{x :.1f}%")
+
 df["UNIDADE"] = df['N. F.'].astype(str).str.slice(0, 1)
 df['UNIDADE'] = df['UNIDADE'].str.replace('1', 'Jacobina').str.replace('3', 'Franca')
 
@@ -145,6 +144,9 @@ with col6:
 df_filtrado = df.groupby(['UNIDADE','N. F.','DATA N.F.','CIDADE','UF','TRANSPORTADORA','Ano','Mês',"dia"])['VALOR N.FISCAL'].sum().reset_index()
 
 df_filtrado = df_filtrado.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE == @filtro_fabrica')
+
+df_filtrado['PERC. %'] = df_filtrado.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
+df_filtrado['PERC. %'] = df_filtrado['PERC. %'].apply(lambda x: f"{x :.1f}%")
 #---------------------------------------------------------------------------------------------
 
 
@@ -196,7 +198,7 @@ df_table['VALOR N.FISCAL'] = df_table['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:
 with col8:
     st.subheader("Por Transportadora", anchor = False)
     st.dataframe(df_table,use_container_width= True, hide_index = True)
-    # st.dataframe(df_procx,use_container_width= True, hide_index = True)
+
 
 
 df_pie = df_filtrado.groupby('UNIDADE')['FRETE PAGO'].sum().reset_index()    
@@ -225,6 +227,7 @@ column_chart_faturamento.update_xaxes(showgrid= False,visible = True ,title="")
 with col9:
     st.plotly_chart(column_chart_faturamento,use_container_width= True)
 #-----------------------------------------------------------------------------------------------------
+
 df_filtrado = df_filtrado.drop(columns=["Mês","dia","Ano"])
 df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 #-----------------------------------------------------------------------------------------------------
