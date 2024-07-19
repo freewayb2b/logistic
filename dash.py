@@ -145,8 +145,7 @@ df_filtrado = df.groupby(['UNIDADE','N. F.','DATA N.F.','CIDADE','UF','TRANSPORT
 
 df_filtrado = df_filtrado.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE == @filtro_fabrica')
 
-df_filtrado['PERC. %'] = df_filtrado.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
-df_filtrado['PERC. %'] = df_filtrado['PERC. %'].apply(lambda x: f"{x :.1f}%")
+
 #---------------------------------------------------------------------------------------------
 
 
@@ -156,6 +155,9 @@ df_filtrado['PERC. %'] = df_filtrado['PERC. %'].apply(lambda x: f"{x :.1f}%")
 df_proc = df.drop_duplicates(subset='N. F.', keep='first')
 
 df_filtrado = pd.merge(df_filtrado, df_proc[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
+
+df_filtrado['PERC. %'] = df_filtrado.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
+df_filtrado['PERC. %'] = df_filtrado['PERC. %'].apply(lambda x: f"{x :.1f}%")
 
 #-----------------------------------------------------------------------------------------------------
 
