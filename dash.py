@@ -231,7 +231,7 @@ df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 
 df_uf = df_filtrado.groupby(['UF'])['FRETE PAGO'].sum().reset_index()
 df_uf = df_uf.sort_values('FRETE PAGO',ascending=True)
-# df_uf['FRETE PAGO'] = df_uf['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
+df_uf['FRETE PAGO'] = df_uf['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
 
 
 #-----------------------------------------------------------------------------------------------------
