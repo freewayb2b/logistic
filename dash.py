@@ -153,7 +153,7 @@ df_filtrado = df_filtrado.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim an
 
 df_proc = df.drop_duplicates(subset='N. F.', keep='first')
 
-df_nf = pd.merge(df_filtrado, df_proc[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
+df_filtrado = pd.merge(df_filtrado, df_proc[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
 
 #-----------------------------------------------------------------------------------------------------
 
