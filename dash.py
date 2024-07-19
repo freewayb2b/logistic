@@ -20,6 +20,7 @@ col1, col2, col3, col4, col5, col6 = st.columns([1.8,1.8,1.8,1.5,1,1])
 col7, col8 = st.columns(2)
 col9, = st.columns(1)
 col10, = st.columns(1)
+col11, = st.columns(1)
 
 #-----------------------------------------------------------------------------------------------------
 #ETL
@@ -146,10 +147,6 @@ df_filtrado = df_filtrado.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim an
 
 #---------------------------------------------------------------------------------------------
 
-
-
-# df_nf = df_filtrado.groupby(['N. F.'])['VALOR N.FISCAL'].sum().reset_index()
-
 df_proc = df.drop_duplicates(subset='N. F.', keep='first')
 
 df_filtrado = pd.merge(df_filtrado, df_proc[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
@@ -232,11 +229,12 @@ df_filtrado = df_filtrado.drop(columns=["Mês","dia","Ano"])
 df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 #-----------------------------------------------------------------------------------------------------
 
-# df_uf = df_filtrado.groupby(['UF','VALOR N.FISCAL'])['FRETE PAGO'].sum().reset_index()
-# df_uf = df_uf.sort_values('FRETE PAGO',ascending=False)
-
+df_uf = df_filtrado.groupby(['UF'])['FRETE PAGO'].sum().reset_index()
+df_uf = df_uf.sort_values('FRETE PAGO',ascending=False)
 # df_uf['FRETE PAGO'] = df_uf['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
 
+
+#-----------------------------------------------------------------------------------------------------
 df_filtrado['FRETE PAGO'] = df_filtrado['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
 df_filtrado['VALOR N.FISCAL'] = df_filtrado['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.2f}')
 
@@ -245,7 +243,9 @@ df_filtrado['VALOR N.FISCAL'] = df_filtrado['VALOR N.FISCAL'].apply(lambda x: f'
 with col10:
     st.subheader("Detalhamento Geral", anchor = False)
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
-   
+
+with col11:
+    uf_chart = px.bar(df_uf,x="UF",y="FRETE PAGO")  
     
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
