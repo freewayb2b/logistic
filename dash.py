@@ -250,6 +250,7 @@ with col10:
     uf_chart.layout.xaxis.fixedrange = True
     uf_chart.layout.yaxis.fixedrange = True
     uf_chart.update_xaxes(showgrid= False,visible = False ,title="")
+    uf_chart.update_yaxes(showgrid= False,visible = True ,title="")
     st.plotly_chart(uf_chart,use_container_width= True) 
     
 #-----------------------------------------------------------------------------------------------------
