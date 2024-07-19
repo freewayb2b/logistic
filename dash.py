@@ -141,10 +141,13 @@ with col6:
     filtro_fim = st.date_input("Até","today",format= "DD/MM/YYYY")
 
 
-df_filtrado = df.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE == @filtro_fabrica')
+
+df_filtrado = df.groupby(['UNIDADE','N. F.','DATA N.F.','CIDADE','UF','TRANSPORTADORA'])['VALOR N.FISCAL'].sum().reset_index()
+
+df_filtrado = df_filtrado.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE == @filtro_fabrica')
 #---------------------------------------------------------------------------------------------
 
-df_nf = df_filtrado.groupby(['UNIDADE','N. F.','DATA N.F.','CIDADE','UF','TRANSPORTADORA'])['VALOR N.FISCAL'].sum().reset_index()
+# df_nf = df_filtrado.groupby(['UNIDADE','N. F.','DATA N.F.','CIDADE','UF','TRANSPORTADORA'])['VALOR N.FISCAL'].sum().reset_index()
 
 
 # df_nf = df_filtrado.groupby(['N. F.'])['VALOR N.FISCAL'].sum().reset_index()
