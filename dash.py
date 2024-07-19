@@ -148,7 +148,7 @@ df_nf = df_filtrado.groupby(['N. F.'])['VALOR N.FISCAL'].sum().reset_index()
 
 df_proc = df_filtrado.drop_duplicates(subset='FRETE PAGO', keep='first')
 
-df_nf = pd.merge(df_nf, df_filtrado[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
+df_nf = pd.merge(df_nf, df_proc[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
 
 #-----------------------------------------------------------------------------------------------------
 
