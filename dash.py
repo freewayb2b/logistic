@@ -143,10 +143,12 @@ with col6:
 df_filtrado = df.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE == @filtro_fabrica')
 #---------------------------------------------------------------------------------------------
 
-# df_nf = df_filtrado.groupby(['N. F.'])['VALOR N.FISCAL'].sum().reset_index()
+df_nf = df_filtrado.groupby(['N. F.'])['VALOR N.FISCAL'].sum().reset_index()
 
-# df_procx = pd.merge(df_nf, df_filtrado, on='N. F.', how='left')
 # df_procx = pd.merge(df_nf, df_filtrado[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
+
+#-----------------------------------------------------------------------------------------------------
+
 
 df_filtrado = df_filtrado.drop(columns=["Ano","VR. FRETE COBRADO","VR. FRETE COTAÇAO"])
 
@@ -233,7 +235,8 @@ df_uf['FRETE PAGO'] = df_uf['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
 with col10:
     st.subheader("Frete por UF", anchor = False)
     st.dataframe(df_filtrado,use_container_width = True, hide_index = True)
-    
+with col11:
+    st.dataframe(df_nf,use_container_width = True)    
     
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
