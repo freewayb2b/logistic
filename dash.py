@@ -247,6 +247,10 @@ with col12:
 with col10:
     uf_chart = px.bar(df_uf,x="FRETE PAGO",y="UF",orientation = "h",
     title='Frete por Transportadora',color_discrete_sequence=[cor_barras])
+    column_chart_faturamento.update_xaxes(dtick=1)
+    column_chart_faturamento.layout.xaxis.fixedrange = True
+    column_chart_faturamento.layout.yaxis.fixedrange = True
+    column_chart_faturamento.update_xaxes(showgrid= False,visible = True ,title="")
     st.plotly_chart(uf_chart,use_container_width= True) 
     
 #-----------------------------------------------------------------------------------------------------
