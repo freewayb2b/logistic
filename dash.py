@@ -240,6 +240,9 @@ df_uf_frete = df_filtrado.groupby('UF').agg({'VALOR N.FISCAL': 'sum','FRETE PAGO
 df_uf_frete['PERC. %'] = df_uf_frete.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
 df_uf_frete['PERC. %'] = df_uf_frete['PERC. %'].apply(lambda x: f"{x :.1f}%")
 df_uf_frete = df_uf_frete.sort_values('VALOR N.FISCAL',ascending=False)
+df_uf_frete['FRETE PAGO'] = df_uf_frete['FRETE PAGO'].apply(lambda x: f'R$ {x:,.2f}')
+df_uf_frete['VALOR N.FISCAL'] = df_uf_frete['VALOR N.FISCAL'].apply(lambda x: f'R$ {x:,.2f}')
+
 
 
 #-----------------------------------------------------------------------------------------------------
