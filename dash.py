@@ -258,7 +258,7 @@ with col10:
 
 with col11:
     st.subheader("Faturamento X Percentual Frete", anchor = False)
-    st.dataframe(df_uf_fat,use_container_width = True, hide_index = True)
+    st.dataframe(df_uf_frete,use_container_width = True, hide_index = True)
     
 #-----------------------------------------------------------------------------------------------------
 #estilizacao
