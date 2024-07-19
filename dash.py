@@ -230,9 +230,9 @@ df_filtrado["DATA N.F."] = df_filtrado["DATA N.F."].dt.strftime('%d/%m/%Y')
 #-----------------------------------------------------------------------------------------------------
 
 df_uf = df_filtrado.groupby('UF')['VALOR N.FISCAL'].sum().reset_index()
-# df_uf['PERC. %'] = df_uf.apply(lambda row: (row['FRETE PAGO'] / row['VALOR N.FISCAL']) * 100, axis=1)
-# df_uf['PERC. %'] = df_uf['PERC. %'].apply(lambda x: f"{x :.1f}%")
-df_uf = df_uf.sort_values('VALOR N.FISCAL',ascending=False)
+df_uf['FATURAMENTO'] = df_uf['VALOR N.FISCAL']
+df_uf = df_uf.drop(columns="VALOR N.FISCAL")
+df_uf = df_uf.sort_values('FATURAMENTO',ascending=False)
 
 
 
