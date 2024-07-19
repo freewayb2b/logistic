@@ -233,6 +233,7 @@ df_uf = df_filtrado.groupby('UF')['VALOR N.FISCAL'].sum().reset_index()
 df_uf['FATURAMENTO'] = df_uf['VALOR N.FISCAL']
 df_uf = df_uf.drop(columns="VALOR N.FISCAL")
 df_uf = df_uf.sort_values('FATURAMENTO',ascending=False)
+df_uf['FATURAMENTO'] = df_uf['FATURAMENTO'].apply(lambda x: f'R$ {x:,.2f}')
 
 #-----------------------------------------------------------------------------------------------------
 
