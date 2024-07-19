@@ -285,3 +285,14 @@ borda = """
 st.markdown(borda, unsafe_allow_html=True)  
 
 
+
+botao = """
+            <style>
+            [data-testid="StyledFullScreenButton"]
+            {
+            visibility: hidden;
+            }
+            </style>
+            """
+
+st.markdown(botao, unsafe_allow_html=True)  
