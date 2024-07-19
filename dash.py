@@ -146,7 +146,7 @@ df_filtrado = df.query('@filtro_inicio <= `DATA N.F.` <= @filtro_fim and UNIDADE
 
 df_nf = df_filtrado.groupby(['N. F.'])['VALOR N.FISCAL'].sum().reset_index()
 
-df_proc = df_filtrado.drop_duplicates(subset='FRETE PAGO', keep='first')
+df_proc = df_filtrado.drop_duplicates(subset='N. F.', keep='first')
 
 df_nf = pd.merge(df_nf, df_proc[['N. F.', 'FRETE PAGO']], on='N. F.', how='left')
 
