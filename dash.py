@@ -164,9 +164,9 @@ df_nf = pd.merge(df_filtrado, df_proc[['N. F.', 'FRETE PAGO']], on='N. F.', how=
 
 qtd_nfs = df_filtrado.shape[0]
 total = df_filtrado["VALOR N.FISCAL"].sum()
-# valor_frete = df_filtrado["FRETE PAGO"].sum()
-# percentual_frete = (valor_frete / total) * 100
-# percentual_frete = f"{percentual_frete:.2f}%"
+valor_frete = df_filtrado["FRETE PAGO"].sum()
+percentual_frete = (valor_frete / total) * 100
+percentual_frete = f"{percentual_frete:.2f}%"
 
 
 #-----------------------------------------------------------------------------------------------------
