@@ -11,7 +11,7 @@ st.set_page_config(layout = "wide",page_title="Logística FW",page_icon="🚚")
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>",unsafe_allow_html = True)
 
-st.image("header.png",width = 1300)
+st.image("header.png")
 st.divider()
 
 
