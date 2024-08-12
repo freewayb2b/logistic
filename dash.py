@@ -38,7 +38,7 @@ def load_data(link):
     dados = pd.read_csv(link)
     return dados
 
-dados = load_data()
+dados = load_data(link)
 
 df = dados
 
