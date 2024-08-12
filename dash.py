@@ -38,9 +38,8 @@ def load_data(link):
     dados = pd.read_csv(link)
     return dados
 
-dados = load_data(link)
+df = load_data(link)
 
-df = dados
 
 df["Data"] = pd.to_datetime(df["DATA N.F."])
 
