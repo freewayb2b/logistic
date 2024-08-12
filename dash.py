@@ -28,11 +28,6 @@ col12, = st.columns(1)
 link = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_InxkV5GPZKYxQp1qO9d1knpB4_xzbh-TL0YYDor-wY1ldpmOisnRDZ6imGvt6d14rz8IRS7ivN3K/pub?output=csv"
 
 
-# @st.cache_data
-# def load_data(link):
-#     df = pd.read_csv(link)
-#     return df
-
 @st.cache_data
 def load_data(link):
     dados = pd.read_csv(link)
