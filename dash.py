@@ -14,6 +14,7 @@ with open("style.css") as f:
 st.image("header.png")
 st.divider()
 
+calc = st.image('calculator.png',width=30)
 
 coltitle, = st.columns(1)
 col1, col2, col3, col4, col5, col6 = st.columns([1.8,1.8,1.8,1.5,1,1])
@@ -183,7 +184,7 @@ with col3:
     st.metric("Frete Pago",f'🚚 R$ {valor_frete:,.0f}')
 
 with col4:
-    st.metric("Percentual Frete",f'🧮 {percentual_frete}')
+    st.metric("Percentual Frete",f'{calc} {percentual_frete}')
 
 #-----------------------------------------------------------------------------------------------------
 #charts colors
