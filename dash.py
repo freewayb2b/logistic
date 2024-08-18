@@ -208,12 +208,13 @@ with col8:
 
 df_pie = df_filtrado.groupby('UNIDADE')['FRETE PAGO'].sum().reset_index()    
 
-pie_chart = px.pie(df_pie,values = "FRETE PAGO", names ="UNIDADE",title = "Frete por Unidade",
+pie_chart = px.pie(df_pie,values = "FRETE PAGO", names ="UNIDADE",
 category_orders = {'UNIDADE':["Franca","Jacobina"]},color_discrete_sequence=["#9AA5A7","#3E4A4A"])
 pie_chart.update_traces(showlegend=True,textfont=dict(size=17,color='#ffffff'),textposition='outside')
 
 
 with col7:
+    st.subheader("Frete Por Unidade",anchor=False)
     st.plotly_chart(pie_chart,use_container_width= True)
 
 
