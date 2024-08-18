@@ -222,14 +222,14 @@ with col7:
 df_faturamento = df_filtrado.groupby('dia')['VALOR N.FISCAL'].sum().reset_index()
 
 
-column_chart_faturamento = px.area(df_faturamento,x="dia", y="VALOR N.FISCAL",
-            title='Faturamento Diário',color_discrete_sequence=[cor_barras])
+column_chart_faturamento = px.area(df_faturamento,x="dia", y="VALOR N.FISCAL",color_discrete_sequence=[cor_barras])
 column_chart_faturamento.update_xaxes(dtick=1)
 column_chart_faturamento.layout.xaxis.fixedrange = True
 column_chart_faturamento.layout.yaxis.fixedrange = True
 column_chart_faturamento.update_xaxes(showgrid= False,visible = True ,title="")
 
 with col9:
+    st.subheader("Faturamento Diário", anchor = False)
     st.plotly_chart(column_chart_faturamento,use_container_width= True)
 #-----------------------------------------------------------------------------------------------------
 
