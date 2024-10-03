@@ -278,7 +278,7 @@ with col11:
 
 borda = """
             <style>
-            [data-testid="Stcolumn"]
+            [data-testid="stColumn"]
             {
             background-color: #2F3035;
             border-radius: 15px;
